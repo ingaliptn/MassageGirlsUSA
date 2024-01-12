@@ -1,7 +1,10 @@
-﻿namespace MassageGirls.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MassageGirls.Models
 {
     public class GirlProfile
     {
+        [Key]
         public int GirlId { get; set; }
         public string GirlName { get; set; }
         public string Photo { get; set; }
