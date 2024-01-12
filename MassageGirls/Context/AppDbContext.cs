@@ -9,7 +9,7 @@ namespace MassageGirls.Context
         {
         }
 
-        public DbSet<GirlProfile> GirlProfiles { get; set; }
-        public DbSet<MassageType> MassageTypes { get; set; }
+        public DbSet<GirlProfile> GirlProfile { get; set; }
+        public DbSet<MassageType> MassageType { get; set; }
     }
 }
