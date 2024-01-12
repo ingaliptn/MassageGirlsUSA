@@ -1,0 +1,145 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutProfile.cshtml";
+}
+@model MassageGirls.Models.GirlProfile
+
+<section id="primary" class="full-width ws-narrow">
+    <main id="content" role="main">
+        <div class="ws-page ws-profile">
+
+            <article id="post-675" class="post-675 girl type-girl status-publish has-post-thumbnail hentry">
+
+                <div class="divleft">
+                    <div class="ibox">
+                        <img width="400" height="600" src="~/images/masseuse/@Model.Photo" class="attachment-wsomega-profile size-wsomega-profile wp-post-image" alt="">
+                    </div>
+                </div>
+
+
+                <div class="divright">
+                    <h1>@Model.GirlName</h1>
+                    <div class="summary">
+                        <p>
+                            @Model.Bio
+                        </p>
+
+
+                    </div>
+                    <hr class="ws-clear">
+                </div>
+
+            </article>
+            <!-- #post-675 -->
+
+        </div>
+
+        <div class="ws-profile-contact">
+            <h3>Hire @Model.GirlName Now</h3><div class="frm_forms " id="frm_form_9_container">
+
+                <form enctype="multipart/form-data" method="post" class="frm-show-form  frm_pro_form " id="form_contact-form" action="./send_booking">
+                    <div class="frm_form_fields ">
+                        <fieldset>
+                            <legend class="frm_screen_reader">Contact Us</legend>
+
+                            <div class="frm_fields_container">
+                                <input type="hidden" name="" value="create">
+                                <input type="hidden" name="" value="9">
+                                <input type="hidden" name="" id="frm_hide_fields_9" value="">
+                                <input type="hidden" name="" value="contact-form">
+                                <input type="hidden" name="" value="">
+                                <input type="hidden" id="" name="frm_submit_entry_9" value="59b651a00f">
+                                <input type="hidden" name="" value="/girls/ivy/">
+
+                                <label for="" class="frm_screen_reader frm_hidden">If you are human, leave this field blank.</label>
+                                <input type="text" class="frm_hidden frm_verify" id="frm_verify_9" name="frm_verify" value="">
+
+
+                                <div id="frm_field_94_container" class="frm_form_field form-field  frm_required_field frm_top_container frm_first frm_third">
+                                    <label for="" class="frm_primary_label">
+                                        Name
+                                        <span class="frm_required"></span>
+                                    </label>
+                                    <input type="text" id="firstname" name="firstname" value="" placeholder="Name" data-reqmsg="This field cannot be blank." data-invmsg="Name is invalid" required="required">
+                                </div>
+
+
+                                <div id="frm_field_96_container" class="frm_form_field form-field  frm_required_field frm_top_container frm_third">
+                                    <label for="" class="frm_primary_label">
+                                        Email
+                                        <span class="frm_required"></span>
+                                    </label>
+                                    <input type="email" id="email" name="email" value="" placeholder="Email" data-reqmsg="This field cannot be blank." data-invmsg="Please enter a valid email address" required="required">
+                                </div>
+
+                                <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_third">
+                                    <label for="" class="frm_primary_label">
+                                        Phone
+                                        <span class="frm_required"></span>
+                                    </label>
+                                    <input type="text" id="phone" name="phone" value="" placeholder="Phone" data-frmval="Phone" data-invmsg="Text is invalid">
+                                </div>
+
+                                <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_first_half">
+                                    <label for="" class="frm_primary_label">
+                                        Preffered Model
+                                        <span class="frm_required"></span>
+                                    </label>
+                                    <input type="text" id="masseusename" name="masseusename" value="@Model.GirlName" placeholder="masseusename" data-frmval="Preffered Model" data-invmsg="Text is invalid">
+                                </div>
+
+                                <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_last_half">
+                                    <label for="" class="frm_primary_label">
+                                        Alternative Model
+                                        <span class="frm_required"></span>
+                                    </label>
+                                    <select name="masseusename1"><option value="">--Select Extra Girl--</option><option value="Simona">Simona</option><option value="Polina">Polina</option><option value="Marina">Marina</option><option value="Chanel">Chanel</option><option value="Raven">Raven</option><option value="Pollyanna">Pollyanna</option><option value="Olivia">Olivia</option><option value="Antonina">Antonina</option><option value="Madonna">Madonna</option><option value="Karina">Karina</option><option value="Ina">Ina</option><option value="Angelica">Angelica</option><option value="Lolita">Lolita</option><option value="Kira">Kira</option><option value="Dguna">Dguna</option><option value="Amalia">Amalia</option><option value="Julia">Julia</option><option value="Hillary">Hillary</option><option value="Angelina">Angelina</option><option value="Alianna">Alianna</option><option value="Maya">Maya</option><option value="Kioko">Kioko</option><option value="Kimika">Kimika</option><option value="Kazashi">Kazashi</option></select>                    <!--<input type="text" id="" name="" value="Phone" data-frmval="Phone" data-invmsg="Text is invalid">-->
+                                </div>
+
+                                <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_full">
+                                    <label for="city" class="frm_primary_label">
+                                        City
+                                        <span class="frm_required"></span>
+                                    </label>
+                                    <!--<input type="text" id="city" name="city" value="Boston" placeholder="City" data-frmval="City" data-invmsg="Text is invalid">-->
+                                    <select name="city" id="city">
+                                        <option value="Boston" selected="selected">Boston</option>
+                                        <!--<option value="Atlanta">Atlanta</option>
+                                        <option value="Austin">Austin</option>
+                                        <option value="Boston">Boston</option>
+                                        <option value="Chicago">Chicago</option>
+                                        <option value="Dallas">Dallas</option>
+                                        <option value="Denver">Denver</option>
+                                        <option value="Houston">Houston</option>
+                                        <option value="Los Angeles">Los Angeles</option>
+                                        <option value="NYC">NYC</option>
+                                        <option value="Orlando">Orlando</option>
+                                        <option value="San Diego">San Diego</option>
+                                        <option value="San Francisco">San Francisco</option>-->
+                                    </select>
+                                </div>
+
+
+                                <div id="frm_field_98_container" class="frm_form_field form-field  frm_required_field frm_top_container frm_full">
+                                    <label for="" class="frm_primary_label">
+                                        Message
+                                        <span class="frm_required"></span>
+                                    </label>
+                                    <textarea name="request" id="request" rows="5" placeholder="Message" data-reqmsg="This field cannot be blank." data-invmsg="Message is invalid"></textarea>
+                                </div>
+
+                                <input type="hidden" name="item_key" value="">
+                                <div class="frm_submit">
+                                    <button class="frm_button_submit frm_final_submit" type="submit">Submit</button>
+                                </div>
+
+                            </div>
+                        </fieldset>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </main>
+</section>
+
