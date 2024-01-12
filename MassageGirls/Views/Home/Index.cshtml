@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<MassageGirls.Models.GirlProfile>
 <section id="wsSection">
 
     <section id="wsSection1" class="ws-parallax ws-parallax-contain lva-section-header">
@@ -123,7 +123,7 @@
                 </figure>
 
                 <div class="&quot;ws-button-div-center&#39;">
-                    <p><a class="ws-button" href="./booking/">Schedule an Appointment</a></p>
+                    <p><a class="ws-button" asp-action="Booking">Schedule an Appointment</a></p>
                 </div>
             </div>
         </div>
@@ -229,7 +229,7 @@
                 </div>
 
                 <div class="&quot;ws-button-div-center&#39;">
-                    <p><a class="ws-button" href="./booking/">Schedule an Appointment</a></p>
+                    <p><a class="ws-button" asp-action="Booking">Schedule an Appointment</a></p>
                 </div>
                 <p><em>Rush and Drama FREE</em></p>
             </div>
@@ -249,12 +249,16 @@
             <div class="ws-wrap">
                 <ul class="ws-grid ws-grid-6">
 
-                    <li class="widget" itemscope="">
-                        <a href="./profile/inessa/">
-                            <figure class="ibox"><img src="~/images/masseuse/inessa.jpg"></figure>
-                            <h3 class="widget-title" itemprop="name" style="height: 40px;">Inessa</h3>
+                    @foreach(var item in Model)
+                    {
+                        <li class="widget" itemscope="">
+                            <a asp-controller="Profile" asp-action="Index" asp-route-id="@item.GirlId">
+                            <figure class="ibox"><img src="~/images/masseuse/@item.Photo"></figure>
+                            <h3 class="widget-title" itemprop="name" style="height: 40px;">@item.GirlName</h3>
                         </a>
                     </li>
+                    }
+                    
 
                     <li class="widget" itemscope="">
                         <a href="./profile/ingrid/">
