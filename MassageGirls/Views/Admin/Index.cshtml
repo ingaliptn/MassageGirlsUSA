@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MassageGirls.Models.GirlProfile>
+@{
+    Layout = "~/Views/Shared/_LayoutProfile.cshtml";
+}
+<div class="ws-wrap">
+    <div id="main">
+
+        <section id="primary" class="full-width">
+            <main id="content" role="main">
+                <div class="ws-page ws-girls-page">
+
+                    <header class="header" itemprop="name headline">
+                        <h1 class="page-title">Our Massage Girls</h1>
+                        <div>
+                            <a asp-controller="Admin" asp-action="Create" class="btn btn-primary">Create New</a>
+                        </div>
+                    </header>
+
+                    <ul class="ws-grid ws-grid-4">
+
+                        @foreach (var item in Model)
+                        {
+                            <li class="widget" itemscope="">
+                                <a asp-controller="Admin" asp-action="Edit" asp-route-id="@item.GirlId">
+                                    <figure class="ibox"><img src="~/images/masseuse/@item.Photo"></figure>
+                                    <h3 class="widget-title">@item.GirlName</h3>
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+
+                    
+                </div>
+            </main>
+        </section>
+
+        <hr class="ws-clear">
+    </div>
+
+    <hr class="ws-clear">
+</div>
