@@ -44,13 +44,14 @@ namespace MassageGirls.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Town")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TownID")
+                        .HasColumnType("int");
 
                     b.HasKey("GirlId");
 
                     b.HasIndex("MassageTypeID");
+
+                    b.HasIndex("TownID");
 
                     b.ToTable("GirlProfile");
                 });
@@ -72,6 +73,23 @@ namespace MassageGirls.Migrations
                     b.ToTable("MassageType");
                 });
 
+            modelBuilder.Entity("MassageGirls.Models.Town", b =>
+                {
+                    b.Property<int>("TownID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TownID"));
+
+                    b.Property<string>("TownName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TownID");
+
+                    b.ToTable("Town");
+                });
+
             modelBuilder.Entity("MassageGirls.Models.GirlProfile", b =>
                 {
                     b.HasOne("MassageGirls.Models.MassageType", "MassageType")
@@ -80,7 +98,15 @@ namespace MassageGirls.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("MassageGirls.Models.Town", "Town")
+                        .WithMany()
+                        .HasForeignKey("TownID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("MassageType");
+
+                    b.Navigation("Town");
                 });
 #pragma warning restore 612, 618
         }

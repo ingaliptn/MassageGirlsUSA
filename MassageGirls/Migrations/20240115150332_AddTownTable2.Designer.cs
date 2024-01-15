@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MassageGirls.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240112141644_AddModels2")]
-    partial class AddModels2
+    [Migration("20240115150332_AddTownTable2")]
+    partial class AddTownTable2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,13 +47,14 @@ namespace MassageGirls.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Town")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TownID")
+                        .HasColumnType("int");
 
                     b.HasKey("GirlId");
 
                     b.HasIndex("MassageTypeID");
+
+                    b.HasIndex("TownID");
 
                     b.ToTable("GirlProfile");
                 });
@@ -75,6 +76,23 @@ namespace MassageGirls.Migrations
                     b.ToTable("MassageType");
                 });
 
+            modelBuilder.Entity("MassageGirls.Models.Town", b =>
+                {
+                    b.Property<int>("TownID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TownID"));
+
+                    b.Property<string>("TownName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TownID");
+
+                    b.ToTable("Town");
+                });
+
             modelBuilder.Entity("MassageGirls.Models.GirlProfile", b =>
                 {
                     b.HasOne("MassageGirls.Models.MassageType", "MassageType")
@@ -83,7 +101,15 @@ namespace MassageGirls.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("MassageGirls.Models.Town", "Town")
+                        .WithMany()
+                        .HasForeignKey("TownID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("MassageType");
+
+                    b.Navigation("Town");
                 });
 #pragma warning restore 612, 618
         }

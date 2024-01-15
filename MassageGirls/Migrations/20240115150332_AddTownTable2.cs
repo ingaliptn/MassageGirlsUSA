@@ -5,13 +5,13 @@
 namespace MassageGirls.Migrations
 {
     /// <inheritdoc />
-    public partial class EditModels : Migration
+    public partial class AddTownTable2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "MassageTypes",
+                name: "MassageType",
                 columns: table => new
                 {
                     MassageTypeID = table.Column<int>(type: "int", nullable: false)
@@ -20,11 +20,24 @@ namespace MassageGirls.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MassageTypes", x => x.MassageTypeID);
+                    table.PrimaryKey("PK_MassageType", x => x.MassageTypeID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "GirlProfiles",
+                name: "Town",
+                columns: table => new
+                {
+                    TownID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TownName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Town", x => x.TownID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GirlProfile",
                 columns: table => new
                 {
                     GirlId = table.Column<int>(type: "int", nullable: false)
@@ -32,34 +45,48 @@ namespace MassageGirls.Migrations
                     GirlName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Photo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Bio = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Town = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TownID = table.Column<int>(type: "int", nullable: false),
                     MassageTypeID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GirlProfiles", x => x.GirlId);
+                    table.PrimaryKey("PK_GirlProfile", x => x.GirlId);
                     table.ForeignKey(
-                        name: "FK_GirlProfiles_MassageTypes_MassageTypeID",
+                        name: "FK_GirlProfile_MassageType_MassageTypeID",
                         column: x => x.MassageTypeID,
-                        principalTable: "MassageTypes",
+                        principalTable: "MassageType",
                         principalColumn: "MassageTypeID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_GirlProfile_Town_TownID",
+                        column: x => x.TownID,
+                        principalTable: "Town",
+                        principalColumn: "TownID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_GirlProfiles_MassageTypeID",
-                table: "GirlProfiles",
+                name: "IX_GirlProfile_MassageTypeID",
+                table: "GirlProfile",
                 column: "MassageTypeID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GirlProfile_TownID",
+                table: "GirlProfile",
+                column: "TownID");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "GirlProfiles");
+                name: "GirlProfile");
 
             migrationBuilder.DropTable(
-                name: "MassageTypes");
+                name: "MassageType");
+
+            migrationBuilder.DropTable(
+                name: "Town");
         }
     }
 }
