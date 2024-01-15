@@ -1,6 +1,8 @@
 ﻿using MassageGirls.Context;
 using MassageGirls.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Linq;
 
@@ -16,7 +18,7 @@ namespace MassageGirls.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<GirlProfile> Girls = _db.GirlProfile.Where(x => x.Town == "Home");
+            IEnumerable<GirlProfile> Girls = _db.GirlProfile.Where(girl => girl.Town.TownName == "HOME").Take(6);
             return View(Girls);
         }
         public IActionResult Booking()
@@ -27,9 +29,16 @@ namespace MassageGirls.Controllers
         {
             return View();
         }
+        public IActionResult Cities()
+        {
+            ViewBag.City = "Atlanta";
+            IEnumerable<GirlProfile> Girls = _db.GirlProfile.Where(girl => girl.Town.TownName == "ATLANTA" && girl.MassageTypeID == 1);
+            return View(Girls);
+        }
         public IActionResult OurMassageGirls()
         {
-            return View();
+            IEnumerable<GirlProfile> Girls = _db.GirlProfile.Where(girl => girl.Town.TownName == "HOME");
+            return View(Girls);
         }
 
         public IActionResult Privacy()
@@ -42,5 +51,7 @@ namespace MassageGirls.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        
     }
 }
