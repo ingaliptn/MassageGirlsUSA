@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<MassageGirls.Models.GirlProfile>
 <div class="ws-wrap">
     <div id="main">
 
@@ -12,89 +12,16 @@
 
                     <ul class="ws-grid ws-grid-4">
 
-                        <li class="widget" itemscope="">
-                            <a href="./profile/inessa/">
-                                <figure class="ibox"><img src="~/images/masseuse/inessa.jpg" alt="Inessa" title="Inessa"></figure>
-                                <h3 class="widget-title">Inessa</h3>
-                            </a>
-                        </li>
+                        @foreach (var item in Model)
+                        {
+                            <li class="widget" itemscope="">
+                                <a asp-controller="Profile" asp-action="Index" asp-route-id="@item.GirlId">
+                                    <figure class="ibox"><img src="~/images/masseuse/@item.Photo"></figure>
+                                    <h3 class="widget-title">@item.GirlName</h3>
+                                </a>
+                            </li>
+                        }
 
-                        <li class="widget" itemscope="">
-                            <a href="./profile/ingrid/">
-                                <figure class="ibox"><img src="~/images/masseuse/ingrid.jpg" alt="Ingrid" title="Ingrid"></figure>
-                                <h3 class="widget-title">Ingrid</h3>
-                            </a>
-                        </li>
-
-                        <li class="widget" itemscope="">
-                            <a href="./profile/inushka/">
-                                <figure class="ibox"><img src="~/images/masseuse/inushka.jpg" alt="Inushka" title="Inushka"></figure>
-                                <h3 class="widget-title">Inushka</h3>
-                            </a>
-                        </li>
-
-                        <li class="widget" itemscope="">
-                            <a href="./profile/karolina/">
-                                <figure class="ibox"><img src="~/images/masseuse/karolina.jpg" alt="Karolina" title="Karolina"></figure>
-                                <h3 class="widget-title">Karolina</h3>
-                            </a>
-                        </li>
-
-                        <li class="widget" itemscope="">
-                            <a href="./profile/maya/">
-                                <figure class="ibox"><img src="~/images/masseuse/maya.jpg" alt="Maya" title="Maya"></figure>
-                                <h3 class="widget-title">Maya</h3>
-                            </a>
-                        </li>
-
-                        <li class="widget" itemscope="">
-                            <a href="./profile/ninoshka/">
-                                <figure class="ibox"><img src="~/images/masseuse/ninoshka.jpg" alt="Ninoshka" title="Ninoshka"></figure>
-                                <h3 class="widget-title">Ninoshka</h3>
-                            </a>
-                        </li>
-
-                        <li class="widget" itemscope="">
-                            <a href="./profile/rada/">
-                                <figure class="ibox"><img src="~/images/masseuse/rada.jpg" alt="Rada" title="Rada"></figure>
-                                <h3 class="widget-title">Rada</h3>
-                            </a>
-                        </li>
-
-                        <li class="widget" itemscope="">
-                            <a href="./profile/aiyuchi/">
-                                <figure class="ibox"><img src="~/images/masseuse/aiyuchi.jpg" alt="Aiyuchi" title="Aiyuchi"></figure>
-                                <h3 class="widget-title">Aiyuchi</h3>
-                            </a>
-                        </li>
-
-                        <li class="widget" itemscope="">
-                            <a href="./profile/riko/">
-                                <figure class="ibox"><img src="~/images/masseuse/riko.jpg" alt="Riko" title="Riko"></figure>
-                                <h3 class="widget-title">Riko</h3>
-                            </a>
-                        </li>
-
-                        <li class="widget" itemscope="">
-                            <a href="./profile/satomi/">
-                                <figure class="ibox"><img src="~/images/masseuse/satomi.jpg" alt="Satomi" title="Satomi"></figure>
-                                <h3 class="widget-title">Satomi</h3>
-                            </a>
-                        </li>
-
-                        <li class="widget" itemscope="">
-                            <a href="./profile/babita/">
-                                <figure class="ibox"><img src="~/images/masseuse/babita.jpg" alt="Babita" title="Babita"></figure>
-                                <h3 class="widget-title">Babita</h3>
-                            </a>
-                        </li>
-
-                        <li class="widget" itemscope="">
-                            <a href="./profile/dahlia/">
-                                <figure class="ibox"><img src="~/images/masseuse/dahlia.jpg" alt="Dahlia" title="Dahlia"></figure>
-                                <h3 class="widget-title">Dahlia</h3>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </main>
