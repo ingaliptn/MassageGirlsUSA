@@ -1,5 +1,4 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_LayoutProfile.cshtml";
 }
 @model MassageGirls.Models.GirlProfile
@@ -20,11 +19,7 @@
                 <div class="divright">
                     <h1>@Model.GirlName</h1>
                     <div class="summary">
-                        <p>
-                            @Model.Bio
-                        </p>
-
-
+                            @Html.Raw(Model.Bio)
                     </div>
                     <hr class="ws-clear">
                 </div>
