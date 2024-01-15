@@ -11,5 +11,6 @@ namespace MassageGirls.Context
 
         public DbSet<GirlProfile> GirlProfile { get; set; }
         public DbSet<MassageType> MassageType { get; set; }
+        public DbSet<Town> Town { get; set; }
     }
 }
