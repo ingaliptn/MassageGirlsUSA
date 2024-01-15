@@ -1,0 +1,234 @@
+﻿@model IEnumerable<MassageGirls.Models.GirlProfile>
+@{
+    Layout = "~/Views/Shared/_LayoutCities.cshtml";
+}
+<section id="primary" class="full-width">
+    <main id="content" role="main">
+        <div class="ws-page">
+
+            <header class="header" itemprop="name headline">
+                <h1 class="page-title">Erotic Massage in @ViewBag.City</h1>
+            </header>
+
+
+            <p>Life can be mean, it can be great but sometimes it is too boring. If you are also feeling the same thing, then you should do something that you have never done before. Yeah, we are talking about getting the best pleasures of life through erotic massage @ViewBag.City has to offer. If you are in @ViewBag.City, GA and want to live our life like a king, then there is nothing better than hiring masseuses who can provide the best @ViewBag.City erotic massage. We guarantee that if you hire from us, then you are going to be in better hands.</p>
+
+            <figure class="ibox">
+                <img src="~/images/banner.jpg" class="attachment-wsomega-thumbnail size-wsomega-thumbnail" alt="" sizes="(max-width: 450px) 100vw, 450px">
+            </figure>
+
+            <br />
+            <h3>
+                Choose Your Masseuse<br />
+                <span class="red1">(More Masseuses Available. Contact Us for today's Availability)</span>
+            </h3>
+            <ul class="ws-grid ws-grid-4">
+
+                @foreach (var item in Model)
+                {
+                    <li class="widget" itemscope="">
+                        <a asp-controller="Profile" asp-action="Index" asp-route-id="@item.GirlId">
+                            <figure class="ibox"><img src="~/images/masseuse/@item.Photo"></figure>
+                            <h3 class="widget-title">@item.GirlName</h3>
+                        </a>
+                    </li>
+                }
+            </ul>
+
+
+            <p>Our masseuses are not just good looking, but they are complete professionals who understands their client and want to provide them everything. If you are seeking erotic times, then @ViewBag.City erotic massage is the only thing you should go for, and we bet that nothing in this world can satisfy you more. Our agency is loaded with masseuses who are simply perfect. They have every possible skill you seek out in a masseuse and that’s the reason our clients love to hire these amazing girls for sensual massage. If you are also trying to find the best masseuses then stop looking since you are at the right place. With us, you will never have to go anywhere else.</p>
+
+            <h3>Massage Menu</h3>
+            <!-- service -->
+            <section id="wsSection2" class="ws-section ws-section-2 lva-section-grid">
+                <div class="ws-section-content">
+                    <div class="ws-wrap">
+                        <ul class="ws-grid ws-grid-3">
+
+                            <li class="widget ws-section-grid-1" itemscope="">
+                                <figure class="ibox">
+                                    <img width="450" height="225" src="~/images/erotic_massage.jpg" class="attachment-wsomega-thumbnail size-wsomega-thumbnail" alt="" sizes="(max-width: 450px) 100vw, 450px">
+                                </figure>
+
+                                <h3 class="widget-title" itemprop="name" style="height: 20px;"> Erotic Massage </h3>
+                                <div class="summary"><p style="height: 88px;">As the name suggests it is all about getting erotic massage while you enjoy health benefits too. This kind of massage is the only thing that can satisfy your thoroughly.</p></div>
+                                <div class="ws-button-div-center"><a href="/atlanta/" class="ws-button">Explore</a></div>
+                            </li>
+
+                            <li class="widget ws-section-grid-1" itemscope="">
+                                <figure class="ibox">
+                                    <img width="450" height="225" src="~/images/happy_ending_massage.jpg" class="attachment-wsomega-thumbnail size-wsomega-thumbnail" alt="" sizes="(max-width: 450px) 100vw, 450px">
+                                </figure>
+
+                                <h3 class="widget-title" itemprop="name" style="height: 20px;"> Happy Ending Massage </h3>
+                                <div class="summary"><p style="height: 88px;">If you want total satisfaction then happy ending massage is the right thing for you. Come to us and experience the best without any worries.</p></div>
+                                <div class="ws-button-div-center"><a href="./atlanta/happy-ending/" class="ws-button">Explore</a></div>
+                            </li>
+
+                            <li class="widget ws-section-grid-2" itemscope="">
+
+                                <figure class="ibox">
+                                    <img width="450" height="225" src="~/images/tantra_massage.jpg" class="attachment-wsomega-thumbnail size-wsomega-thumbnail" alt="" sizes="(max-width: 450px) 100vw, 450px">
+                                </figure>
+
+                                <h3 class="widget-title" itemprop="name" style="height: 20px;"> Tantra Massage </h3>
+                                <div class="summary"><p style="height: 88px;">Get ready to experience the most amazing massage of your life with tantra massage. Tantra massage will not just please you but it will make you feel damn amazing too.</p></div>
+                                <div class="ws-button-div-center"><a href="./atlanta/tantra/" class="ws-button">Explore</a></div>
+                            </li>
+
+                            <li class="widget ws-section-grid-3" itemscope="">
+                                <figure class="ibox">
+                                    <img width="450" height="225" src="~/images/couple_massage.jpg" class="attachment-wsomega-thumbnail size-wsomega-thumbnail" alt="" sizes="(max-width: 450px) 100vw, 450px">
+                                </figure>
+
+                                <h3 class="widget-title" itemprop="name" style="height: 20px;"> Couples Massage </h3>
+                                <div class="summary"> <p style="height: 88px;">When we are talking about erotic stuff then couples massage is the only thing you should opt for when you want to experience pleasures with your partner.</p></div>
+                                <div class="ws-button-div-center"><a href="./atlanta/couples/" class="ws-button">Explore</a></div>
+
+                                <hr class="ws-clear">
+
+                            </li>
+
+                            <li class="widget ws-section-grid-3" itemscope="">
+                                <figure class="ibox">
+                                    <img width="450" height="225" src="~/images/asian_massage.jpg" class="attachment-wsomega-thumbnail size-wsomega-thumbnail" alt="" sizes="(max-width: 450px) 100vw, 450px">
+                                </figure>
+
+                                <h3 class="widget-title" itemprop="name" style="height: 20px;"> Asian Massage </h3>
+                                <div class="summary"> <p style="height: 88px;">Asian massage is simply the best and if you are hiring Asian masseuses for this massage then you can enjoy every single second of this session.</p></div>
+                                <div class="ws-button-div-center"><a href="./atlanta/asian/" class="ws-button">Explore</a></div>
+
+                                <hr class="ws-clear">
+
+                            </li>
+
+                            <li class="widget ws-section-grid-3" itemscope="">
+                                <figure class="ibox">
+                                    <img width="450" height="225" src="~/images/nuru_massage.jpg" class="attachment-wsomega-thumbnail size-wsomega-thumbnail" alt="" sizes="(max-width: 450px) 100vw, 450px">
+                                </figure>
+
+                                <h3 class="widget-title" itemprop="name" style="height: 20px;"> NURU Massage </h3>
+                                <div class="summary"> <p style="height: 88px;">NURU Massage is all about slippery gel and sexy masseuses who are willing to provide you the best massage experience of your life.</p></div>
+                                <div class="ws-button-div-center"><a href="./atlanta/nuru/" class="ws-button">Explore</a></div>
+
+                                <hr class="ws-clear">
+
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </section>
+            <!-- service -->
+
+            <h3>Book With Us Now</h3>
+
+            <form enctype="multipart/form-data" method="post" class="frm-show-form  frm_pro_form " id="form_contact-form" action="/send_booking">
+                <div class="frm_form_fields ">
+                    <fieldset>
+                        <legend class="frm_screen_reader">Contact Us</legend>
+
+                        <div class="frm_fields_container">
+                            <input type="hidden" name="" value="create">
+                            <input type="hidden" name="" value="9">
+                            <input type="hidden" name="" id="frm_hide_fields_9" value="">
+                            <input type="hidden" name="" value="contact-form">
+                            <input type="hidden" name="" value="">
+                            <input type="hidden" id="" name="frm_submit_entry_9" value="59b651a00f">
+                            <input type="hidden" name="" value="/girls/ivy/">
+
+                            <label for="" class="frm_screen_reader frm_hidden">If you are human, leave this field blank.</label>
+                            <input type="text" class="frm_hidden frm_verify" id="frm_verify_9" name="frm_verify" value="">
+
+
+                            <div id="frm_field_94_container" class="frm_form_field form-field  frm_required_field frm_top_container frm_first frm_third">
+                                <label for="" class="frm_primary_label">
+                                    Name
+                                    <span class="frm_required"></span>
+                                </label>
+                                <input type="text" id="firstname" name="firstname" value="" placeholder="Name" data-reqmsg="This field cannot be blank." data-invmsg="Name is invalid" required="required">
+                            </div>
+
+
+                            <div id="frm_field_96_container" class="frm_form_field form-field  frm_required_field frm_top_container frm_third">
+                                <label for="" class="frm_primary_label">
+                                    Email
+                                    <span class="frm_required"></span>
+                                </label>
+                                <input type="email" id="email" name="email" value="" placeholder="Email" data-reqmsg="This field cannot be blank." data-invmsg="Please enter a valid email address" required="required">
+                            </div>
+
+                            <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_third">
+                                <label for="" class="frm_primary_label">
+                                    Phone
+                                    <span class="frm_required"></span>
+                                </label>
+                                <input type="text" id="phone" name="phone" value="" placeholder="Phone" data-frmval="Phone" data-invmsg="Text is invalid">
+                            </div>
+
+                            <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_first_half">
+                                <label for="" class="frm_primary_label">
+                                    Preffered Model
+                                    <span class="frm_required"></span>
+                                </label>
+                                <select name="masseusename"<option value="">--select--</option><option value="Demi">Demi</option><option value="Donna">Donna</option><option value="Fareeda">Fareeda</option><option value="Gigi">Gigi</option><option value="Alessa">Alessa</option><option value="Dafna">Dafna</option><option value="Elvira">Elvira</option><option value="Lessia">Lessia</option><option value="Anya">Anya</option><option value="Daria">Daria</option><option value="Gelana">Gelana</option><option value="Liberty">Liberty</option><option value="Aurora">Aurora</option><option value="Diora">Diora</option><option value="Elza">Elza</option><option value="Maja">Maja</option><option value="Brendi">Brendi</option><option value="Kapitolina">Kapitolina</option><option value="Sandra">Sandra</option><option value="Zelma">Zelma</option><option value="Elana">Elana</option><option value="Olesya">Olesya</option><option value="Veronika">Veronika</option></select>
+                            </div>
+
+                            <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_last_half">
+                                <label for="" class="frm_primary_label">
+                                    Alternative Model
+                                    <span class="frm_required"></span>
+                                </label>
+                                <select name="masseusename1"<option value="">--select--</option><option value="Veronika">Veronika</option><option value="Olesya">Olesya</option><option value="Elana">Elana</option><option value="Zelma">Zelma</option><option value="Sandra">Sandra</option><option value="Kapitolina">Kapitolina</option><option value="Brendi">Brendi</option><option value="Maja">Maja</option><option value="Elza">Elza</option><option value="Diora">Diora</option><option value="Aurora">Aurora</option><option value="Liberty">Liberty</option><option value="Gelana">Gelana</option><option value="Daria">Daria</option><option value="Anya">Anya</option><option value="Lessia">Lessia</option><option value="Elvira">Elvira</option><option value="Dafna">Dafna</option><option value="Alessa">Alessa</option><option value="Gigi">Gigi</option><option value="Fareeda">Fareeda</option><option value="Donna">Donna</option><option value="Demi">Demi</option></select>                    <!--<input type="text" id="" name="" value="Phone" data-frmval="Phone" data-invmsg="Text is invalid">-->
+                            </div>
+
+
+
+                            <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_full">
+                                <label for="city" class="frm_primary_label">
+                                    City
+                                    <span class="frm_required"></span>
+                                </label>
+                                <!--<input type="text" id="city" name="city" value="Atlanta" placeholder="City" data-frmval="City" data-invmsg="Text is invalid">-->
+                                <select name="city" id="city">
+                                    <option value="Atlanta" selected="selected">Atlanta</option>
+                                    <!--<option value="Atlanta">Atlanta</option>
+                                    <option value="Austin">Austin</option>
+                                    <option value="Boston">Boston</option>
+                                    <option value="Chicago">Chicago</option>
+                                    <option value="Dallas">Dallas</option>
+                                    <option value="Denver">Denver</option>
+                                    <option value="Houston">Houston</option>
+                                    <option value="Los Angeles">Los Angeles</option>
+                                    <option value="NYC">NYC</option>
+                                    <option value="Orlando">Orlando</option>
+                                    <option value="San Diego">San Diego</option>
+                                    <option value="San Francisco">San Francisco</option>-->
+                                </select>
+                            </div>
+
+
+                            <div id="frm_field_98_container" class="frm_form_field form-field  frm_required_field frm_top_container frm_full">
+                                <label for="" class="frm_primary_label">
+                                    Message
+                                    <span class="frm_required"></span>
+                                </label>
+                                <textarea name="request" id="request" rows="5" placeholder="Message" data-reqmsg="This field cannot be blank." data-invmsg="Message is invalid"></textarea>
+                            </div>
+
+                            <input type="hidden" name="item_key" value="">
+                            <div class="frm_submit">
+                                <button class="frm_button_submit frm_final_submit" type="submit">Submit</button>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+
+
+
+
+        </div>
+    </main>
+</section>
