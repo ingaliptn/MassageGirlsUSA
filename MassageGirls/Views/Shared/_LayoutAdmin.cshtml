@@ -1,6 +1,5 @@
 ﻿@using MassageGirls.Models
 <html lang="en" class="">
-
 <head>
     <base href="/">
     <meta charset="utf-8">
@@ -30,8 +29,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="sitemap" href="./sitemap.xml" type="application/xml" />
+    <style>
+        .parallax {
+            /* The image used */
+            background-image: url('images/las-vegas-asian-hotel-room-massage.jpg');
+            /* Set a specific height */
+            /*height: 500px;*/
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
-
 <body class="home page-template page-template-page-section page-template-page-section-php page page-id-7">
 
     <!--<div class="parallax-mirror" style="visibility: visible; z-index: 0; position: fixed; top: 90px; left: 0px; overflow: hidden; transform: translate3d(0px, 0px, 0px); height: 607px; width: 1903px;">
@@ -51,82 +62,46 @@
 
             <div class="header_right_block">
 
-                @* <div class="livechat_icon">
-                <a href="#"><img src="images/livechat_icon.gif" alt="" title="" /></a>
-                </div> *@
-
-                <!--chat-->
-                <div class="livechat_icon">
-
-                    <script type='text/javascript' src='https://chat.serverpipe.com:8443/include.js?domain=massagegirls.online'></script>
-                    <script type='text/javascript'>
-                        if (typeof sWOTrackPage == 'function') sWOTrackPage();
-                    </script>
-
-                </div>
-                <!--chat-->
-
                 <div class="site-nav-collapse">
                     <nav class="cssCustomMenu">
                         <label for="drop" class="css_toggle">&#8801;</label>
                         <input type="checkbox" id="drop" />
                         <ul class="cssMenu">
-                            <li><a asp-action="Index">Home</a></li>
-                            <li>
-                                <label for="drop-1" class="css_toggle css_toggleDropdown">Cities +</label>
-                                <a asp-action="Index">Cities</a>
-                                <input type="checkbox" id="drop-1" />
-                                <ul>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="2" asp-route-MassageId="1">Atlanta</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="3" asp-route-MassageId="1">Austin</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="4" asp-route-MassageId="1">Boston</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="5" asp-route-MassageId="1">Chicago</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="6" asp-route-MassageId="1">Dallas</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="7" asp-route-MassageId="1">Denver</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="8" asp-route-MassageId="1">Houston</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="9" asp-route-MassageId="1">Indianapolis</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="10" asp-route-MassageId="1">Las Vegas</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="11" asp-route-MassageId="1">Los Angeles</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="12" asp-route-MassageId="1">New Orleans</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="13" asp-route-MassageId="1">NYC</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="14" asp-route-MassageId="1">Orlando</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="15" asp-route-MassageId="1">Salt Lake City</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="16" asp-route-MassageId="1">San Diego</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="17" asp-route-MassageId="1">San Francisco</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="18" asp-route-MassageId="1">Scottsdale</a></li>
-                                </ul>
-                            </li>
-                            <li><a asp-action="Booking">Booking</a></li>
-                            <li><a asp-action="Contact">Contact</a></li>
+                            <li><a asp-action="Index">View Girls</a></li>
+                            <li><a asp-action="IndexTown">View Cities</a></li>
                         </ul>
                     </nav>
-                </div>
-
-                <div class="site_hotline">
-                    <a href="tel:4632097850"> 463-209-7850</a>
                 </div>
             </div>
         </div>
     </header>
 
 
-        @* ///////////////////////////// *@
+    <!--end New header section -->
+    @* ///////////////////////////// *@
+
+    <div id="page" class="hfeed">
 
         <div id="wsBody">
-            <div class="ws-wrap">
+            <div id="wsHome">
                 <div id="main">
-                    @RenderBody()
 
+                    @RenderBody()
+                    
                     <hr class="ws-clear">
+
                 </div>
 
                 <hr class="ws-clear">
+
             </div>
 
             <hr class="ws-clear">
-        </div>
 
-        @* ///////////////////////////// *@
+        </div>
+    </div>
+
+    @* ///////////////////////////// *@
 
     <footer id="wsFoot">
         <nav class="ws-footer-nav">
