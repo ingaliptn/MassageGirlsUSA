@@ -18,6 +18,11 @@ namespace MassageGirls.Controllers
             IEnumerable<GirlProfile> girls = _db.GirlProfile.ToList();
             return View(girls);
         }
+        public IActionResult IndexTown()
+        {
+            IEnumerable<Town> town = _db.Town.ToList();
+            return View(town);
+        }
 
         [HttpGet]
         public IActionResult Create()
@@ -32,7 +37,7 @@ namespace MassageGirls.Controllers
         {
             _db.GirlProfile.Add(profile);
             _db.SaveChanges();
-            return RedirectToAction("Create");
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -56,7 +61,28 @@ namespace MassageGirls.Controllers
         {
             _db.GirlProfile.Update(girlProfile);
             _db.SaveChanges();
-            return RedirectToAction("Edit");
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult EditTown(int id)
+        {
+            Town town = _db.Town.Find(id);
+
+            if (town == null)
+            {
+                return NotFound();
+            }
+
+            return View(town);
+        }
+
+        [HttpPost]
+        public IActionResult EditTown(Town town)
+        {
+            _db.Town.Update(town);
+            _db.SaveChanges();
+            return RedirectToAction("IndexTown");
         }
     }
 }
