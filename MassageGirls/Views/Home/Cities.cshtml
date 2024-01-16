@@ -7,7 +7,7 @@
         <div class="ws-page">
 
             <header class="header" itemprop="name headline">
-                <h1 class="page-title">Erotic Massage in @ViewData["TownName"]</h1>
+                <h1 class="page-title">@ViewData["MassageType"] in @ViewData["TownName"]</h1>
             </header>
             <p>@Html.Raw(ViewData["Header"])</p>
 
@@ -70,7 +70,7 @@
 
                                 <h3 class="widget-title" itemprop="name" style="height: 20px;"> Tantra Massage </h3>
                                 <div class="summary"><p style="height: 88px;">Get ready to experience the most amazing massage of your life with tantra massage. Tantra massage will not just please you but it will make you feel damn amazing too.</p></div>
-                                <div class="ws-button-div-center"><a href="./atlanta/tantra/" class="ws-button">Explore</a></div>
+                                <div class="ws-button-div-center"><a asp-action="Cities" asp-route-MassageId="3" asp-route-TownId="@ViewData["TownId"]" class="ws-button">Explore</a></div>
                             </li>
 
                             <li class="widget ws-section-grid-3" itemscope="">
@@ -80,7 +80,7 @@
 
                                 <h3 class="widget-title" itemprop="name" style="height: 20px;"> Couples Massage </h3>
                                 <div class="summary"> <p style="height: 88px;">When we are talking about erotic stuff then couples massage is the only thing you should opt for when you want to experience pleasures with your partner.</p></div>
-                                <div class="ws-button-div-center"><a href="./atlanta/couples/" class="ws-button">Explore</a></div>
+                                <div class="ws-button-div-center"><a asp-action="Cities" asp-route-MassageId="4" asp-route-TownId="@ViewData["TownId"]" class="ws-button">Explore</a></div>
 
                                 <hr class="ws-clear">
 
@@ -93,7 +93,7 @@
 
                                 <h3 class="widget-title" itemprop="name" style="height: 20px;"> Asian Massage </h3>
                                 <div class="summary"> <p style="height: 88px;">Asian massage is simply the best and if you are hiring Asian masseuses for this massage then you can enjoy every single second of this session.</p></div>
-                                <div class="ws-button-div-center"><a href="./atlanta/asian/" class="ws-button">Explore</a></div>
+                                <div class="ws-button-div-center"><a asp-action="Cities" asp-route-MassageId="5" asp-route-TownId="@ViewData["TownId"]" class="ws-button">Explore</a></div>
 
                                 <hr class="ws-clear">
 
@@ -106,7 +106,7 @@
 
                                 <h3 class="widget-title" itemprop="name" style="height: 20px;"> NURU Massage </h3>
                                 <div class="summary"> <p style="height: 88px;">NURU Massage is all about slippery gel and sexy masseuses who are willing to provide you the best massage experience of your life.</p></div>
-                                <div class="ws-button-div-center"><a href="./atlanta/nuru/" class="ws-button">Explore</a></div>
+                                <div class="ws-button-div-center"><a asp-action="Cities" asp-route-MassageId="6" asp-route-TownId="@ViewData["TownId"]" class="ws-button">Explore</a></div>
 
                                 <hr class="ws-clear">
 
@@ -168,7 +168,13 @@
                                     Preffered Model
                                     <span class="frm_required"></span>
                                 </label>
-                                <select name="masseusename"<option value="">--select--</option><option value="Demi">Demi</option><option value="Donna">Donna</option><option value="Fareeda">Fareeda</option><option value="Gigi">Gigi</option><option value="Alessa">Alessa</option><option value="Dafna">Dafna</option><option value="Elvira">Elvira</option><option value="Lessia">Lessia</option><option value="Anya">Anya</option><option value="Daria">Daria</option><option value="Gelana">Gelana</option><option value="Liberty">Liberty</option><option value="Aurora">Aurora</option><option value="Diora">Diora</option><option value="Elza">Elza</option><option value="Maja">Maja</option><option value="Brendi">Brendi</option><option value="Kapitolina">Kapitolina</option><option value="Sandra">Sandra</option><option value="Zelma">Zelma</option><option value="Elana">Elana</option><option value="Olesya">Olesya</option><option value="Veronika">Veronika</option></select>
+                                <select name="masseusename"
+                                @* @foreach (var item in ViewData["Girls"] as IEnumerable<MassageGirls.Models.GirlProfile>)
+                                {
+                                            <option value="@item.GirlName">@item.GirlName</option>
+                                } *@
+                                <option value="">--select--</option><option value="Demi">Demi</option><option value="Donna">Donna</option><option value="Fareeda">Fareeda</option><option value="Gigi">Gigi</option><option value="Alessa">Alessa</option><option value="Dafna">Dafna</option><option value="Elvira">Elvira</option><option value="Lessia">Lessia</option><option value="Anya">Anya</option><option value="Daria">Daria</option><option value="Gelana">Gelana</option><option value="Liberty">Liberty</option><option value="Aurora">Aurora</option><option value="Diora">Diora</option><option value="Elza">Elza</option><option value="Maja">Maja</option><option value="Brendi">Brendi</option><option value="Kapitolina">Kapitolina</option><option value="Sandra">Sandra</option><option value="Zelma">Zelma</option><option value="Elana">Elana</option><option value="Olesya">Olesya</option><option value="Veronika">Veronika</option>
+</select>
                             </div>
 
                             <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_last_half">
@@ -176,7 +182,11 @@
                                     Alternative Model
                                     <span class="frm_required"></span>
                                 </label>
-                                <select name="masseusename1"<option value="">--select--</option><option value="Veronika">Veronika</option><option value="Olesya">Olesya</option><option value="Elana">Elana</option><option value="Zelma">Zelma</option><option value="Sandra">Sandra</option><option value="Kapitolina">Kapitolina</option><option value="Brendi">Brendi</option><option value="Maja">Maja</option><option value="Elza">Elza</option><option value="Diora">Diora</option><option value="Aurora">Aurora</option><option value="Liberty">Liberty</option><option value="Gelana">Gelana</option><option value="Daria">Daria</option><option value="Anya">Anya</option><option value="Lessia">Lessia</option><option value="Elvira">Elvira</option><option value="Dafna">Dafna</option><option value="Alessa">Alessa</option><option value="Gigi">Gigi</option><option value="Fareeda">Fareeda</option><option value="Donna">Donna</option><option value="Demi">Demi</option></select>                    <!--<input type="text" id="" name="" value="Phone" data-frmval="Phone" data-invmsg="Text is invalid">-->
+                                <select name="masseusename1"
+                                
+                                <option value="">--select--</option><option value="Veronika">Veronika</option><option value="Olesya">Olesya</option><option value="Elana">Elana</option><option value="Zelma">Zelma</option><option value="Sandra">Sandra</option><option value="Kapitolina">Kapitolina</option><option value="Brendi">Brendi</option><option value="Maja">Maja</option><option value="Elza">Elza</option><option value="Diora">Diora</option><option value="Aurora">Aurora</option><option value="Liberty">Liberty</option><option value="Gelana">Gelana</option><option value="Daria">Daria</option><option value="Anya">Anya</option><option value="Lessia">Lessia</option><option value="Elvira">Elvira</option><option value="Dafna">Dafna</option><option value="Alessa">Alessa</option><option value="Gigi">Gigi</option><option value="Fareeda">Fareeda</option><option value="Donna">Donna</option><option value="Demi">Demi</option>
+
+</select>                    <!--<input type="text" id="" name="" value="Phone" data-frmval="Phone" data-invmsg="Text is invalid">-->
                             </div>
 
 
