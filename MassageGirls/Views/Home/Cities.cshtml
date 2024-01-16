@@ -7,11 +7,9 @@
         <div class="ws-page">
 
             <header class="header" itemprop="name headline">
-                <h1 class="page-title">Erotic Massage in @ViewBag.City</h1>
+                <h1 class="page-title">Erotic Massage in @ViewData["TownName"]</h1>
             </header>
-
-
-            <p>Life can be mean, it can be great but sometimes it is too boring. If you are also feeling the same thing, then you should do something that you have never done before. Yeah, we are talking about getting the best pleasures of life through erotic massage @ViewBag.City has to offer. If you are in @ViewBag.City, GA and want to live our life like a king, then there is nothing better than hiring masseuses who can provide the best @ViewBag.City erotic massage. We guarantee that if you hire from us, then you are going to be in better hands.</p>
+            <p>@Html.Raw(ViewData["Header"])</p>
 
             <figure class="ibox">
                 <img src="~/images/banner.jpg" class="attachment-wsomega-thumbnail size-wsomega-thumbnail" alt="" sizes="(max-width: 450px) 100vw, 450px">
@@ -23,7 +21,6 @@
                 <span class="red1">(More Masseuses Available. Contact Us for today's Availability)</span>
             </h3>
             <ul class="ws-grid ws-grid-4">
-
                 @foreach (var item in Model)
                 {
                     <li class="widget" itemscope="">
@@ -35,8 +32,8 @@
                 }
             </ul>
 
+            <p>@Html.Raw(ViewData["Footer"])</p>
 
-            <p>Our masseuses are not just good looking, but they are complete professionals who understands their client and want to provide them everything. If you are seeking erotic times, then @ViewBag.City erotic massage is the only thing you should go for, and we bet that nothing in this world can satisfy you more. Our agency is loaded with masseuses who are simply perfect. They have every possible skill you seek out in a masseuse and that’s the reason our clients love to hire these amazing girls for sensual massage. If you are also trying to find the best masseuses then stop looking since you are at the right place. With us, you will never have to go anywhere else.</p>
 
             <h3>Massage Menu</h3>
             <!-- service -->
@@ -52,7 +49,7 @@
 
                                 <h3 class="widget-title" itemprop="name" style="height: 20px;"> Erotic Massage </h3>
                                 <div class="summary"><p style="height: 88px;">As the name suggests it is all about getting erotic massage while you enjoy health benefits too. This kind of massage is the only thing that can satisfy your thoroughly.</p></div>
-                                <div class="ws-button-div-center"><a href="/atlanta/" class="ws-button">Explore</a></div>
+                                <div class="ws-button-div-center"><a asp-action="Cities" asp-route-MassageId="1" asp-route-TownId="@ViewData["TownId"]" class="ws-button">Explore</a></div>
                             </li>
 
                             <li class="widget ws-section-grid-1" itemscope="">
@@ -62,7 +59,7 @@
 
                                 <h3 class="widget-title" itemprop="name" style="height: 20px;"> Happy Ending Massage </h3>
                                 <div class="summary"><p style="height: 88px;">If you want total satisfaction then happy ending massage is the right thing for you. Come to us and experience the best without any worries.</p></div>
-                                <div class="ws-button-div-center"><a href="./atlanta/happy-ending/" class="ws-button">Explore</a></div>
+                                <div class="ws-button-div-center"><a asp-action="Cities" asp-route-MassageId="2" asp-route-TownId="@ViewData["TownId"]" class="ws-button">Explore</a></div>
                             </li>
 
                             <li class="widget ws-section-grid-2" itemscope="">
@@ -189,21 +186,8 @@
                                     City
                                     <span class="frm_required"></span>
                                 </label>
-                                <!--<input type="text" id="city" name="city" value="Atlanta" placeholder="City" data-frmval="City" data-invmsg="Text is invalid">-->
                                 <select name="city" id="city">
-                                    <option value="Atlanta" selected="selected">Atlanta</option>
-                                    <!--<option value="Atlanta">Atlanta</option>
-                                    <option value="Austin">Austin</option>
-                                    <option value="Boston">Boston</option>
-                                    <option value="Chicago">Chicago</option>
-                                    <option value="Dallas">Dallas</option>
-                                    <option value="Denver">Denver</option>
-                                    <option value="Houston">Houston</option>
-                                    <option value="Los Angeles">Los Angeles</option>
-                                    <option value="NYC">NYC</option>
-                                    <option value="Orlando">Orlando</option>
-                                    <option value="San Diego">San Diego</option>
-                                    <option value="San Francisco">San Francisco</option>-->
+                                    <option value="@ViewData["TownName"]" selected="selected">@ViewData["TownName"]</option>
                                 </select>
                             </div>
 
@@ -225,10 +209,6 @@
                     </fieldset>
                 </div>
             </form>
-
-
-
-
         </div>
     </main>
 </section>
