@@ -29,10 +29,18 @@ namespace MassageGirls.Controllers
         {
             return View();
         }
-        public IActionResult Cities()
+
+        public IActionResult Cities(int? TownId, int? MassageId)
         {
-            ViewBag.City = "Atlanta";
-            IEnumerable<GirlProfile> Girls = _db.GirlProfile.Where(girl => girl.Town.TownName == "ATLANTA" && girl.MassageTypeID == 1);
+            var town = _db.Town.FirstOrDefault(t => t.TownID == TownId);
+
+            // Use town information to customize the view
+            ViewData["TownId"] = town.TownID;
+            ViewData["TownName"] = town.TownName;
+            ViewData["Header"] = town.EroticHeader; // Replace with actual property name
+            ViewData["Footer"] = town.EroticFooter;
+
+            IEnumerable<GirlProfile> Girls = _db.GirlProfile.Where(girl => girl.Town.TownID == TownId && girl.MassageTypeID == MassageId);
             return View(Girls);
         }
         public IActionResult OurMassageGirls()
