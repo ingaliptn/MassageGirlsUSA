@@ -111,6 +111,35 @@
                                 <hr class="ws-clear">
 
                             </li>
+
+                            @if (ViewData["Type"] != null)
+                            {
+                                <li class="widget ws-section-grid-3" itemscope="">
+                                    <figure class="ibox">
+                                        <img width="450" height="225" src="~/images/body_rubs.jpg" class="attachment-wsomega-thumbnail size-wsomega-thumbnail" alt="" sizes="(max-width: 450px) 100vw, 450px">
+                                    </figure>
+
+                                    <h3 class="widget-title" itemprop="name" style="height: 20px;"> Body Rubs </h3>
+                                    <div class="summary"> <p style="height: 88px;">Body rubs are a great way to relax, rejuvenate, and reduce stress.</p></div>
+                                    <div class="ws-button-div-center"><a a asp-action="Cities" asp-route-MassageId="7" asp-route-TownId="@ViewData["TownId"]" class="ws-button">Explore</a></div>
+
+                                    <hr class="ws-clear">
+
+                                </li>
+
+                                <li class="widget ws-section-grid-3" itemscope="">
+                                    <figure class="ibox">
+                                        <img width="450" height="225" src="~/images/sensual_massage.jpg" class="attachment-wsomega-thumbnail size-wsomega-thumbnail" alt="" sizes="(max-width: 450px) 100vw, 450px">
+                                    </figure>
+
+                                    <h3 class="widget-title" itemprop="name" style="height: 20px;"> Sensual Massage </h3>
+                                    <div class="summary"> <p style="height: 88px;">Sensual massage is an amazing experience that can help to relax and rejuvenate your body.</p></div>
+                                    <div class="ws-button-div-center"><a a asp-action="Cities" asp-route-MassageId="8" asp-route-TownId="@ViewData["TownId"]" class="ws-button">Explore</a></div>
+
+                                    <hr class="ws-clear">
+
+                                </li>
+                            }
                         </ul>
 
                     </div>
