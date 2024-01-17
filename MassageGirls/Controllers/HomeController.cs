@@ -36,7 +36,10 @@ namespace MassageGirls.Controllers
             var massage = _db.MassageType.FirstOrDefault(y => y.MassageTypeID == MassageId);
             //List<GirlProfile> townGirls = _db.GirlProfile.Where(x => x.TownID == TownId).Select(a => a.GirlName).ToList();
 
-
+            if (TownId == 4 || TownId == 5 || TownId == 8 || TownId == 10 || TownId == 14 || TownId == 16 || TownId == 17 || TownId == 18)
+            {
+                ViewData["Type"] = "true";
+            }
             //ViewData["Girls"] = townGirls;
             ViewData["TownId"] = town.TownID;
             ViewData["TownName"] = town.TownName;
