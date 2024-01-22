@@ -19,7 +19,7 @@
                 <div class="divright">
                     <h1>@Model.GirlName</h1>
                     <div class="summary">
-                            @Html.Raw(Model.Bio)
+                        @Html.Raw(Model.Bio)
                     </div>
                     <hr class="ws-clear">
                 </div>
@@ -32,7 +32,7 @@
         <div class="ws-profile-contact">
             <h3>Hire @Model.GirlName Now</h3><div class="frm_forms " id="frm_form_9_container">
 
-                <form enctype="multipart/form-data" method="post" class="frm-show-form  frm_pro_form " id="form_contact-form" action="./send_booking">
+                <form asp-controller="Mail" asp-action="ProcessForm" enctype="multipart/form-data" method="post" class="frm-show-form  frm_pro_form " id="form_contact-form">
                     <div class="frm_form_fields ">
                         <fieldset>
                             <legend class="frm_screen_reader">Contact Us</legend>
@@ -55,7 +55,7 @@
                                         Name
                                         <span class="frm_required"></span>
                                     </label>
-                                    <input type="text" id="firstname" name="firstname" value="" placeholder="Name" data-reqmsg="This field cannot be blank." data-invmsg="Name is invalid" required="required">
+                                    <input type="text" id="Name" name="Name" value="" placeholder="Name" data-reqmsg="This field cannot be blank." data-invmsg="Name is invalid" required="required">
                                 </div>
 
 
@@ -64,7 +64,7 @@
                                         Email
                                         <span class="frm_required"></span>
                                     </label>
-                                    <input type="email" id="email" name="email" value="" placeholder="Email" data-reqmsg="This field cannot be blank." data-invmsg="Please enter a valid email address" required="required">
+                                    <input type="email" id="Email" name="Email" value="" placeholder="Email" data-reqmsg="This field cannot be blank." data-invmsg="Please enter a valid email address" required="required">
                                 </div>
 
                                 <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_third">
@@ -72,7 +72,7 @@
                                         Phone
                                         <span class="frm_required"></span>
                                     </label>
-                                    <input type="text" id="phone" name="phone" value="" placeholder="Phone" data-frmval="Phone" data-invmsg="Text is invalid">
+                                    <input type="text" id="Phone" name="Phone" value="" placeholder="Phone" data-frmval="Phone" data-invmsg="Text is invalid">
                                 </div>
 
                                 <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_first_half">
@@ -80,7 +80,10 @@
                                         Preffered Model
                                         <span class="frm_required"></span>
                                     </label>
-                                    <input type="text" id="masseusename" name="masseusename" value="@Model.GirlName" placeholder="masseusename" data-frmval="Preffered Model" data-invmsg="Text is invalid">
+                                    <select name="FirstGirl" id="FirstGirl"
+                                        <option value="">-- Select Girl --</option>
+                                        <option value="@Model.GirlName">@Model.GirlName</option>
+                                    </select>
                                 </div>
 
                                 <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_last_half">
@@ -88,29 +91,36 @@
                                         Alternative Model
                                         <span class="frm_required"></span>
                                     </label>
-                                    <select name="masseusename1"><option value="">--Select Extra Girl--</option><option value="Simona">Simona</option><option value="Polina">Polina</option><option value="Marina">Marina</option><option value="Chanel">Chanel</option><option value="Raven">Raven</option><option value="Pollyanna">Pollyanna</option><option value="Olivia">Olivia</option><option value="Antonina">Antonina</option><option value="Madonna">Madonna</option><option value="Karina">Karina</option><option value="Ina">Ina</option><option value="Angelica">Angelica</option><option value="Lolita">Lolita</option><option value="Kira">Kira</option><option value="Dguna">Dguna</option><option value="Amalia">Amalia</option><option value="Julia">Julia</option><option value="Hillary">Hillary</option><option value="Angelina">Angelina</option><option value="Alianna">Alianna</option><option value="Maya">Maya</option><option value="Kioko">Kioko</option><option value="Kimika">Kimika</option><option value="Kazashi">Kazashi</option></select>                    <!--<input type="text" id="" name="" value="Phone" data-frmval="Phone" data-invmsg="Text is invalid">-->
+                                    <select name="SecondGirl" id="SecondGirl"
+                                        <option value="">-- Select Girl --</option>
+                                        @foreach (var girlName in ViewData["Girls"] as List<string>)
+                                        {
+                                                        <option value="@girlName">@girlName</option>
+                                        }
+                                    </select>
                                 </div>
 
+
+
                                 <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_full">
-                                    <label for="city" class="frm_primary_label">
+                                    <label for="City" class="frm_primary_label">
                                         City
                                         <span class="frm_required"></span>
                                     </label>
-                                    <!--<input type="text" id="city" name="city" value="Boston" placeholder="City" data-frmval="City" data-invmsg="Text is invalid">-->
-                                    <select name="city" id="city">
-                                        <option value="Boston" selected="selected">Boston</option>
-                                        <!--<option value="Atlanta">Atlanta</option>
-                                        <option value="Austin">Austin</option>
-                                        <option value="Boston">Boston</option>
-                                        <option value="Chicago">Chicago</option>
-                                        <option value="Dallas">Dallas</option>
-                                        <option value="Denver">Denver</option>
-                                        <option value="Houston">Houston</option>
-                                        <option value="Los Angeles">Los Angeles</option>
-                                        <option value="NYC">NYC</option>
-                                        <option value="Orlando">Orlando</option>
-                                        <option value="San Diego">San Diego</option>
-                                        <option value="San Francisco">San Francisco</option>-->
+                                    <select name="City" id="City">
+                                        @try
+                                        {       
+                                            <option value="">-- Select City --</option>
+                                            @foreach (var cityName in ViewData["TownName"] as List<string>)
+                                            {
+                                                <option value="@cityName">@cityName</option>
+                                            }
+                                        }
+                                        catch (Exception)
+                                        {
+                                            <option value="@Model.Town.TownName">@Model.Town.TownName</option>
+                                        }
+
                                     </select>
                                 </div>
 
@@ -120,7 +130,7 @@
                                         Message
                                         <span class="frm_required"></span>
                                     </label>
-                                    <textarea name="request" id="request" rows="5" placeholder="Message" data-reqmsg="This field cannot be blank." data-invmsg="Message is invalid"></textarea>
+                                    <textarea name="Message" id="Message" rows="5" placeholder="Message" data-reqmsg="This field cannot be blank." data-invmsg="Message is invalid"></textarea>
                                 </div>
 
                                 <input type="hidden" name="item_key" value="">
@@ -132,6 +142,7 @@
                         </fieldset>
                     </div>
                 </form>
+
             </div>
         </div>
 

@@ -24,7 +24,7 @@
                 @foreach (var item in Model)
                 {
                     <li class="widget" itemscope="">
-                        <a asp-controller="Profile" asp-action="Index" asp-route-id="@item.GirlId">
+                        <a asp-controller="Profile" asp-action="Index" asp-route-id="@item.GirlId" asp-route-TownId="@ViewData["TownId"]">
                             <figure class="ibox"><img src="~/images/masseuse/@item.Photo"></figure>
                             <h3 class="widget-title">@item.GirlName</h3>
                         </a>
@@ -148,8 +148,8 @@
             <!-- service -->
 
             <h3>Book With Us Now</h3>
-
-            <form enctype="multipart/form-data" method="post" class="frm-show-form  frm_pro_form " id="form_contact-form" action="/send_booking">
+            <!-- Form -->
+            <form asp-controller="Mail" asp-action="ProcessForm" enctype="multipart/form-data" method="post" class="frm-show-form  frm_pro_form " id="form_contact-form">
                 <div class="frm_form_fields ">
                     <fieldset>
                         <legend class="frm_screen_reader">Contact Us</legend>
@@ -172,7 +172,7 @@
                                     Name
                                     <span class="frm_required"></span>
                                 </label>
-                                <input type="text" id="firstname" name="firstname" value="" placeholder="Name" data-reqmsg="This field cannot be blank." data-invmsg="Name is invalid" required="required">
+                                <input type="text" id="Name" name="Name" value="" placeholder="Name" data-reqmsg="This field cannot be blank." data-invmsg="Name is invalid" required="required">
                             </div>
 
 
@@ -181,7 +181,7 @@
                                     Email
                                     <span class="frm_required"></span>
                                 </label>
-                                <input type="email" id="email" name="email" value="" placeholder="Email" data-reqmsg="This field cannot be blank." data-invmsg="Please enter a valid email address" required="required">
+                                <input type="email" id="Email" name="Email" value="" placeholder="Email" data-reqmsg="This field cannot be blank." data-invmsg="Please enter a valid email address" required="required">
                             </div>
 
                             <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_third">
@@ -189,7 +189,7 @@
                                     Phone
                                     <span class="frm_required"></span>
                                 </label>
-                                <input type="text" id="phone" name="phone" value="" placeholder="Phone" data-frmval="Phone" data-invmsg="Text is invalid">
+                                <input type="text" id="Phone" name="Phone" value="" placeholder="Phone" data-frmval="Phone" data-invmsg="Text is invalid">
                             </div>
 
                             <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_first_half">
@@ -197,13 +197,13 @@
                                     Preffered Model
                                     <span class="frm_required"></span>
                                 </label>
-                                <select name="masseusename"
-                                @* @foreach (var item in ViewData["Girls"] as IEnumerable<MassageGirls.Models.GirlProfile>)
-                                {
-                                            <option value="@item.GirlName">@item.GirlName</option>
-                                } *@
-                                <option value="">--select--</option><option value="Demi">Demi</option><option value="Donna">Donna</option><option value="Fareeda">Fareeda</option><option value="Gigi">Gigi</option><option value="Alessa">Alessa</option><option value="Dafna">Dafna</option><option value="Elvira">Elvira</option><option value="Lessia">Lessia</option><option value="Anya">Anya</option><option value="Daria">Daria</option><option value="Gelana">Gelana</option><option value="Liberty">Liberty</option><option value="Aurora">Aurora</option><option value="Diora">Diora</option><option value="Elza">Elza</option><option value="Maja">Maja</option><option value="Brendi">Brendi</option><option value="Kapitolina">Kapitolina</option><option value="Sandra">Sandra</option><option value="Zelma">Zelma</option><option value="Elana">Elana</option><option value="Olesya">Olesya</option><option value="Veronika">Veronika</option>
-</select>
+                                <select name="FirstGirl" id="FirstGirl"
+                                <option value="">-- Select Girl --</option>
+                                    @foreach (var girlName in ViewData["Girls"] as List<string>)
+                                    {
+                                       <option value="@girlName">@girlName</option>
+                                    }
+                                    </select>
                             </div>
 
                             <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_last_half">
@@ -211,21 +211,23 @@
                                     Alternative Model
                                     <span class="frm_required"></span>
                                 </label>
-                                <select name="masseusename1"
-                                
-                                <option value="">--select--</option><option value="Veronika">Veronika</option><option value="Olesya">Olesya</option><option value="Elana">Elana</option><option value="Zelma">Zelma</option><option value="Sandra">Sandra</option><option value="Kapitolina">Kapitolina</option><option value="Brendi">Brendi</option><option value="Maja">Maja</option><option value="Elza">Elza</option><option value="Diora">Diora</option><option value="Aurora">Aurora</option><option value="Liberty">Liberty</option><option value="Gelana">Gelana</option><option value="Daria">Daria</option><option value="Anya">Anya</option><option value="Lessia">Lessia</option><option value="Elvira">Elvira</option><option value="Dafna">Dafna</option><option value="Alessa">Alessa</option><option value="Gigi">Gigi</option><option value="Fareeda">Fareeda</option><option value="Donna">Donna</option><option value="Demi">Demi</option>
-
-</select>                    <!--<input type="text" id="" name="" value="Phone" data-frmval="Phone" data-invmsg="Text is invalid">-->
+                                <select name="SecondGirl" id="SecondGirl"
+                                    <option value="">-- Select Girl --</option>
+                                    @foreach (var girlName in ViewData["Girls"] as List<string>)
+                                    {
+                                     <option value="@girlName">@girlName</option>
+                                    }
+                                    </select>
                             </div>
 
 
 
                             <div id="frm_field_99_container" class="frm_form_field form-field  frm_top_container frm_full">
-                                <label for="city" class="frm_primary_label">
+                                <label for="City" class="frm_primary_label">
                                     City
                                     <span class="frm_required"></span>
                                 </label>
-                                <select name="city" id="city">
+                                <select name="City" id="City">
                                     <option value="@ViewData["TownName"]" selected="selected">@ViewData["TownName"]</option>
                                 </select>
                             </div>
@@ -236,7 +238,7 @@
                                     Message
                                     <span class="frm_required"></span>
                                 </label>
-                                <textarea name="request" id="request" rows="5" placeholder="Message" data-reqmsg="This field cannot be blank." data-invmsg="Message is invalid"></textarea>
+                                <textarea name="Message" id="Message" rows="5" placeholder="Message" data-reqmsg="This field cannot be blank." data-invmsg="Message is invalid"></textarea>
                             </div>
 
                             <input type="hidden" name="item_key" value="">
@@ -248,6 +250,7 @@
                     </fieldset>
                 </div>
             </form>
+
         </div>
     </main>
 </section>
