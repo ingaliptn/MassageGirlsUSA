@@ -19,14 +19,27 @@ namespace MassageGirls.Controllers
         public IActionResult Index()
         {
             IEnumerable<GirlProfile> Girls = _db.GirlProfile.Where(girl => girl.Town.TownName == "HOME").Take(6);
+            var town = _db.Town.Select(x => x.TownName).Skip(1).ToList();
+            ViewData["TownName"] = town;
             return View(Girls);
         }
         public IActionResult Booking()
+        {
+            var townGirls = _db.GirlProfile.Select(girl => girl.GirlName).ToList();
+
+            ViewData["Girls"] = townGirls;
+            var town = _db.Town.Select(x => x.TownName).Skip(1).ToList();
+            ViewData["TownName"] = town;
+            return View();
+        }
+        public IActionResult ThankYou()
         {
             return View();
         }
         public IActionResult Contact()
         {
+            var town = _db.Town.Select(x => x.TownName).Skip(1).ToList();
+            ViewData["TownName"] = town;
             return View();
         }
 
@@ -34,13 +47,13 @@ namespace MassageGirls.Controllers
         {
             var town = _db.Town.FirstOrDefault(t => t.TownID == TownId);
             var massage = _db.MassageType.FirstOrDefault(y => y.MassageTypeID == MassageId);
-            //List<GirlProfile> townGirls = _db.GirlProfile.Where(x => x.TownID == TownId).Select(a => a.GirlName).ToList();
+            var townGirls = _db.GirlProfile.Where(girl => girl.TownID == TownId).Select(girl => girl.GirlName).ToList();
 
             if (TownId == 4 || TownId == 5 || TownId == 8 || TownId == 10 || TownId == 14 || TownId == 16 || TownId == 17 || TownId == 18)
             {
                 ViewData["Type"] = "true";
             }
-            //ViewData["Girls"] = townGirls;
+            ViewData["Girls"] = townGirls;
             ViewData["TownId"] = town.TownID;
             ViewData["TownName"] = town.TownName;
             ViewData["MassageType"] = massage.TypeName;
@@ -108,17 +121,5 @@ namespace MassageGirls.Controllers
             return View(Girls);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        
     }
 }
