@@ -136,7 +136,7 @@ jQuery("#ws-mobile-nav > ul > li > a").click(function() {
 });
 WebFontConfig = {
 	google: {
-		families: ["Roboto:300,400,500,700,900"]
+		families: ["Merriweather:300,400,500,700,900"]
 	}
 };
 (function() {
