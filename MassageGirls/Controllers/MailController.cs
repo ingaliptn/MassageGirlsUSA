@@ -16,7 +16,7 @@ namespace MassageGirls.Controllers
                 if (!string.IsNullOrEmpty(bn.Name)) // Check if formData contains fields specific to the first method
                 {
                     body = ConstructBodyFromBuyNowModel(bn);
-                    l.Subject = "Buy Now";
+                    l.Subject = "Book a Massage";
                 }
                 else if (!string.IsNullOrEmpty(cu.NameC)) // Check if mailModel contains fields specific to the second method
                 {
