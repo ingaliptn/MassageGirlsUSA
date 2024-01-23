@@ -34,8 +34,8 @@ namespace MassageGirls.Controllers
                 {
                     client.Host = l.Smtp; // Your SMTP server (e.g., Gmail)
                     client.Port = l.Port; // SMTP Port (Gmail uses 587)
-                    client.EnableSsl = true;
-                    client.UseDefaultCredentials = false;
+                    //client.EnableSsl = true;
+                    //client.UseDefaultCredentials = false;
                     client.Credentials = new NetworkCredential(l.Login, l.Password);
                     var message = new MailMessage();
                     message.From = new MailAddress(l.FromEmail, l.FromName); // Your email address
