@@ -73,7 +73,7 @@
                 <!--chat-->
                 <div class="livechat_icon">
 
-                    <script type='text/javascript' src='https://chat.serverpipe.com:8443/include.js?domain=massagegirls.online'></script>
+                    <script type='text/javascript' src='https://chat.serverpipe.com:8443/include.js?domain=serverpipe.pp.ua'></script> <!-- massagegirls.online   serverpipe.pp.ua -->
                     <script type='text/javascript'>
                         if (typeof sWOTrackPage == 'function') sWOTrackPage();
                     </script>
@@ -86,10 +86,10 @@
                         <label for="drop" class="css_toggle">&#8801;</label>
                         <input type="checkbox" id="drop" />
                         <ul class="cssMenu">
-                            <li><a asp-action="Index">Home</a></li>
+                            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
                             <li>
                                 <label for="drop-1" class="css_toggle css_toggleDropdown">Cities +</label>
-                                <a asp-action="Index">Cities</a>
+                                <a asp-controller="Home" asp-action="Index">Cities</a>
                                 <input type="checkbox" id="drop-1" />
                                 <ul>
                                     <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="2" asp-route-MassageId="1">Atlanta</a></li>
@@ -111,8 +111,8 @@
                                     <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="18" asp-route-MassageId="1">Scottsdale</a></li>
                                 </ul>
                             </li>
-                            <li><a asp-action="Booking">Booking</a></li>
-                            <li><a asp-action="Contact">Contact</a></li>
+                            <li><a asp-controller="Home" asp-action="Booking">Booking</a></li>
+                            <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
