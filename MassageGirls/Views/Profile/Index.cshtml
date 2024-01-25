@@ -95,7 +95,7 @@
                                         <option value="">-- Select Girl --</option>
                                         @foreach (var girlName in ViewData["Girls"] as List<string>)
                                         {
-                                                        <option value="@girlName">@girlName</option>
+                                                                <option value="@girlName">@girlName</option>
                                         }
                                     </select>
                                 </div>
@@ -108,8 +108,28 @@
                                         <span class="frm_required"></span>
                                     </label>
                                     <select name="City" id="City">
-                                        @try
-                                        {       
+                                        @* @if (ViewData["TownName"] == null)
+                                        {
+                                        <option value="@Model.Town.TownName">@Model.Town.TownName</option>
+
+                                        }
+                                        else
+                                        {
+                                        <option value="">-- Select City --</option>
+                                        @foreach (var cityName in ViewData["TownName"] as List<string>)
+                                        {
+                                        <option value="@cityName">@cityName</option>
+                                        }
+                                        } *@
+
+                                        <option value="">-- Select City --</option>
+                                        @foreach (var cityName in ViewData["TownName"] as List<string>)
+                                        {
+                                            <option value="@cityName">@cityName</option>
+                                        }
+
+                                        @* @try
+                                        {
                                             <option value="">-- Select City --</option>
                                             @foreach (var cityName in ViewData["TownName"] as List<string>)
                                             {
@@ -119,7 +139,8 @@
                                         catch (Exception)
                                         {
                                             <option value="@Model.Town.TownName">@Model.Town.TownName</option>
-                                        }
+
+                                        } *@
 
                                     </select>
                                 </div>
