@@ -1,10 +1,12 @@
 ﻿using MassageGirls.Context;
 using MassageGirls.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MassageGirls.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class TestingController : Controller
     {
         private readonly AppDbContext _db;

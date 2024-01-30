@@ -1,0 +1,132 @@
+﻿@model MassageGirls.Models.Town
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section id="primary" class="full-width ws-narrow">
+    <main id="content" role="main">
+        <div class="ws-page">
+            <h2>Edit Town Information</h2>
+            <div class="ws-profile-contact">
+
+                <form asp-action="EditTown" method="post">
+                    <input type="hidden" asp-for="TownID" />
+
+                    <div class="form-group">
+                        <label asp-for="TownName">Town Name:</label>
+                        <input asp-for="TownName" class="form-control" />
+                        <span asp-validation-for="TownName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="EroticHeader">Erotic Header:</label>
+                        <input asp-for="EroticHeader" class="form-control" />
+                        <span asp-validation-for="EroticHeader" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="EroticFooter">Erotic Footer:</label>
+                        <input asp-for="EroticFooter" class="form-control" />
+                        <span asp-validation-for="EroticFooter" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="HappyEndingHeader">Happy Ending Header:</label>
+                        <input asp-for="HappyEndingHeader" class="form-control" />
+                        <span asp-validation-for="HappyEndingHeader" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="HappyEndingFooter">Happy Ending Footer:</label>
+                        <input asp-for="HappyEndingFooter" class="form-control" />
+                        <span asp-validation-for="HappyEndingFooter" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="TantraHeader">Tantra Header:</label>
+                        <input asp-for="TantraHeader" class="form-control" />
+                        <span asp-validation-for="TantraHeader" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="TantraFooter">Tantra Footer:</label>
+                        <input asp-for="TantraFooter" class="form-control" />
+                        <span asp-validation-for="TantraFooter" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="CouplesHeader">Couples Header:</label>
+                        <input asp-for="CouplesHeader" class="form-control" />
+                        <span asp-validation-for="CouplesHeader" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="CouplesFooter">Couples Footer:</label>
+                        <input asp-for="CouplesFooter" class="form-control" />
+                        <span asp-validation-for="CouplesFooter" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="AsianHeader">Asian Header:</label>
+                        <input asp-for="AsianHeader" class="form-control" />
+                        <span asp-validation-for="AsianHeader" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="AsianFooter">Asian Footer:</label>
+                        <input asp-for="AsianFooter" class="form-control" />
+                        <span asp-validation-for="AsianFooter" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="NuruHeader">Nuru Header:</label>
+                        <input asp-for="NuruHeader" class="form-control" />
+                        <span asp-validation-for="NuruHeader" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="NuruFooter">Nuru Footer:</label>
+                        <input asp-for="NuruFooter" class="form-control" />
+                        <span asp-validation-for="NuruFooter" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="BodyHeader">Body Header:</label>
+                        <input asp-for="BodyHeader" class="form-control" />
+                        <span asp-validation-for="BodyHeader" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="BodyFooter">Body Footer:</label>
+                        <input asp-for="BodyFooter" class="form-control" />
+                        <span asp-validation-for="BodyFooter" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="SensualHeader">Sensual Header:</label>
+                        <input asp-for="SensualHeader" class="form-control" />
+                        <span asp-validation-for="SensualHeader" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="SensualFooter">Sensual Footer:</label>
+                        <input asp-for="SensualFooter" class="form-control" />
+                        <span asp-validation-for="SensualFooter" class="text-danger"></span>
+                    </div>
+
+                    <!-- Repeat the above pattern for other fields in the Town model -->
+                    <br />
+
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <a asp-controller="Admin" asp-action="IndexTown" class="btn btn-secondary">Back to List</a>
+                    </div>                <br />
+
+                </form>
+            </div>
+
+        </div>
+    </main>
+</section>
+

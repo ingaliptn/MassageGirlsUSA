@@ -1,0 +1,51 @@
+﻿@model GirlProfile
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section id="primary" class="full-width ws-narrow">
+    <main id="content" role="main">
+        <div class="ws-page">
+            <h2>Edit Girl Profile</h2>
+
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="GirlId" />
+
+                <div>
+                    <label asp-for="GirlName">Girl Name:</label>
+                    <input asp-for="GirlName" />
+                    <span asp-validation-for="GirlName"></span>
+                </div>
+
+                <div>
+                    <label asp-for="Photo">Photo:</label>
+                    <input asp-for="Photo" />
+                    <span asp-validation-for="Photo"></span>
+                </div>
+
+                <div>
+                    <label asp-for="Bio">Bio:</label>
+                    <textarea asp-for="Bio"></textarea>
+                    <span asp-validation-for="Bio"></span>
+                </div>
+
+                <div>
+                    <label asp-for="TownID">Town:</label>
+                    <select asp-for="TownID" asp-items="@(ViewBag.Towns as SelectList)"></select>
+                    <span asp-validation-for="TownID"></span>
+                </div>
+
+                <div>
+                    <label asp-for="MassageTypeID">Massage Type:</label>
+                    <select asp-for="MassageTypeID" asp-items="@(ViewBag.MassageTypes as SelectList)"></select>
+                    <span asp-validation-for="MassageTypeID"></span>
+                </div>
+                <br />
+
+
+                <button type="submit">Save Changes</button>                <br />
+
+            </form>
+        </div>
+    </main>
+</section>
