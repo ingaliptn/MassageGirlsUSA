@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace MassageGirls.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class TestingController : Controller
+    public class ServiceController : Controller
     {
         private readonly AppDbContext _db;
-        public TestingController(AppDbContext db)
+        public ServiceController(AppDbContext db)
         {
             _db = db;
         }

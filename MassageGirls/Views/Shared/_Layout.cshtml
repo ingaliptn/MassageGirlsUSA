@@ -113,6 +113,11 @@
                             </li>
                             <li><a asp-controller="Home" asp-action="Booking">Booking</a></li>
                             <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li><a asp-controller="Testing" asp-action="Index">Admin Panel</a></li>
+                            }
+
                         </ul>
                     </nav>
                 </div>
@@ -174,6 +179,8 @@
             <div onclick="scrollToTop()" id="wsBackTop" class="ws-button"><i class="fa fa-angle-up fa-2x" aria-hidden="true"></i></div>
 
         </div>
+        <partial name="_LoginPartial" />
+
     </footer>
 
     <script>
