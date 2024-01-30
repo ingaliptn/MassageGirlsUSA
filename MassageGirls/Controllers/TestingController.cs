@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MassageGirls.Controllers
 {
-    public class AdminController : Controller
+    public class TestingController : Controller
     {
         private readonly AppDbContext _db;
-        public AdminController(AppDbContext db)
+        public TestingController(AppDbContext db)
         {
             _db = db;
         }

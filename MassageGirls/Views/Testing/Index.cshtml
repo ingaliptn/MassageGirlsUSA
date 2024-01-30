@@ -12,7 +12,7 @@
                     <header class="header" itemprop="name headline">
                         <h1 class="page-title">Our Massage Girls</h1>
                         <div>
-                            <a asp-controller="Admin" asp-action="Create" class="btn btn-primary">Create New</a>
+                            <a asp-controller="Testing" asp-action="Create" class="btn btn-primary">Create New</a> @* Admin *@
                         </div>
                     </header>
 
@@ -21,7 +21,7 @@
                         @foreach (var item in Model)
                         {
                             <li class="widget" itemscope="">
-                                <a asp-controller="Admin" asp-action="Edit" asp-route-id="@item.GirlId">
+                                <a asp-controller="Testing" asp-action="Edit" asp-route-id="@item.GirlId"> @* Admin *@
                                     <figure class="ibox"><img src="~/images/masseuse/@item.Photo"></figure>
                                     <h3 class="widget-title">@item.GirlName</h3>
                                 </a>
