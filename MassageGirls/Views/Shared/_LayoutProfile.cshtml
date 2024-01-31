@@ -6,27 +6,51 @@
     <meta charset="utf-8">
     <meta name="robots" content="noindex, nofollow">
 
-    <title>Massage Girls Online</title>
-    <meta name="description" content="If you are seeking Atlanta erotic massage, then you should come to us directly. At our agency, we have the best masseuses working for us and they are always thinking about newer ways to satisfy their clients. Just call us and things will be perfect for you - Massage Girls Online.">
-    <meta name="original-source" content="https://massagegirls.online/atlanta/" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="massagegirls.online" />
-    <meta property="og:title" content="Massage Girls Online" />
-    <meta property="og:type" content="article" />
-    <meta property="og:description" content="If you are seeking Atlanta erotic massage, then you should come to us directly. At our agency, we have the best masseuses working for us and they are always thinking about newer ways to satisfy their clients. Just call us and things will be perfect for you - Massage Girls Online." />
-    <meta property="og:url" content="https://massagegirls.online/atlanta/" />
-    <meta name="twitter:title" content="Atlanta Erotic Massage | Massage Girls Online" />
-    <meta name="twitter:description" content="If you are seeking Atlanta erotic massage, then you should come to us directly. At our agency, we have the best masseuses working for us and they are always thinking about newer ways to satisfy their clients. Just call us and things will be perfect for you - Massage Girls Online." />
+    @if (Model.TownID != 1)
+    {
+        <title>@ViewData["TownName"] Masseuse @Model.GirlName | Massage Girls Online</title>
+    }
+    else
+    {
+        <title>@Model.GirlName | Massage Girls Online</title>
+    }
+    <meta name="description" content="">
+    <meta name="original-source" content="https://massagegirls.online/scottsdale/profile/belinda/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="massagegirls.online">
+    @* <meta property="og:title" content="Scottsdale Masseuse Belinda | Massage Girls Online"> *@
+    @if (Model.TownID != 1)
+    {
+        <meta property="og:title" content="@ViewData["TownName"] Masseuse @Model.GirlName | Massage Girls Online"/>
+    }
+    else
+    {
+        <meta property="og:title" content="@Model.GirlName | Massage Girls Online"/>
+    }
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="https://massagegirls.online/scottsdale/profile/belinda/">
+
+    @if (Model.TownID != 1)
+    {
+        <meta name="twitter:title" content="@ViewData["TownName"] Masseuse @Model.GirlName | Massage Girls Online" />
+    }
+    else
+    {
+        <meta name="twitter:title" content="@Model.GirlName | Massage Girls Online" />
+    }
+    @* <meta name="twitter:title" content="Scottsdale Masseuse Belinda | Massage Girls Online"> *@
+    <meta name="twitter:description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="~/images/favicon.ico" type="image/x-icon">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://massagegirls.online/atlanta/" />
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://massagegirls.online/scottsdale/profile/belinda/">
     <link rel="stylesheet" type="text/css" media="all" href="~/css/style.css?version=1.3">
     <link rel="dns-prefetch" href="https://use.fontawesome.com/">
     <link rel="stylesheet" id="formidable-css" href="~/css/formidableforms.css" type="text/css" media="all">
-    <script src="~/js/webfont.js" type="text/javascript" async></script>
+    <script src="~/js/webfont.js" type="text/javascript" async=""></script>
     <script type="text/javascript" src="~/js/jquery.js"></script>
     <script type="text/javascript" src="~/js/jquery-migrate.min.js"></script>
 
@@ -103,6 +127,10 @@
                             </li>
                             <li><a asp-controller="Home" asp-action="Booking">Booking</a></li>
                             <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li><a asp-controller="Service" asp-action="Index">Admin Panel</a></li>
+                            }
                         </ul>
                     </nav>
                 </div>

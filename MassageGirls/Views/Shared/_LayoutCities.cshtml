@@ -4,7 +4,7 @@
 <head>
     <base href="/">
     <meta charset="utf-8">
-    <title>Massage Girls Online</title>
+    <title>@ViewData["TownName"] | Massage Girls Online</title>
     <meta name="description" content="If you are seeking Atlanta erotic massage, then you should come to us directly. At our agency, we have the best masseuses working for us and they are always thinking about newer ways to satisfy their clients. Just call us and things will be perfect for you - Massage Girls Online.">
     <meta name="original-source" content="https://massagegirls.online/atlanta/" />
     <meta property="og:locale" content="en_US" />
@@ -102,6 +102,10 @@
                             </li>
                             <li><a asp-controller="Home" asp-action="Booking">Booking</a></li>
                             <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li><a asp-controller="Service" asp-action="Index">Admin Panel</a></li>
+                            }
                         </ul>
                     </nav>
                 </div>
