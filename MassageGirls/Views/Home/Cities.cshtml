@@ -5,9 +5,12 @@
 <section id="primary" class="full-width">
     <main id="content" role="main">
         <div class="ws-page">
-
+            
             <header class="header" itemprop="name headline">
                 <h1 class="page-title">@ViewData["MassageType"] in @ViewData["TownName"]</h1>
+                <p>
+                    @ViewData["TownName"]: <a href="@ViewData["PhoneCall"]"><strong>@ViewData["PhoneShow"]</strong></a>
+                </p>
             </header>
             <p>@Html.Raw(ViewData["Header"])</p>
 
@@ -201,7 +204,7 @@
                                 <option value="">-- Select Girl --</option>
                                     @foreach (var girlName in ViewData["Girls"] as List<string>)
                                     {
-                                       <option value="@girlName">@girlName</option>
+                                           <option value="@girlName">@girlName</option>
                                     }
                                     </select>
                             </div>
@@ -215,7 +218,7 @@
                                     <option value="">-- Select Girl --</option>
                                     @foreach (var girlName in ViewData["Girls"] as List<string>)
                                     {
-                                     <option value="@girlName">@girlName</option>
+                                         <option value="@girlName">@girlName</option>
                                     }
                                     </select>
                             </div>
