@@ -19,6 +19,18 @@
                     </div>
 
                     <div class="form-group">
+                        <label asp-for="PhoneNumberCall">Phone Number Int:</label>
+                        <input asp-for="PhoneNumberCall" class="form-control" />
+                        <span asp-validation-for="PhoneNumberCall" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="PhoneNumberStr">Phone Number Str:</label>
+                        <input asp-for="PhoneNumberStr" class="form-control" />
+                        <span asp-validation-for="PhoneNumberStr" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
                         <label asp-for="EroticHeader">Erotic Header:</label>
                         <input asp-for="EroticHeader" class="form-control" />
                         <span asp-validation-for="EroticHeader" class="text-danger"></span>
