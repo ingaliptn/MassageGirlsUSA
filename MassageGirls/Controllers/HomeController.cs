@@ -48,12 +48,15 @@ namespace MassageGirls.Controllers
             var town = _db.Town.FirstOrDefault(t => t.TownID == TownId);
             var massage = _db.MassageType.FirstOrDefault(y => y.MassageTypeID == MassageId);
             var townGirls = _db.GirlProfile.Where(girl => girl.TownID == TownId).Select(girl => girl.GirlName).ToList();
+            
 
             if (TownId == 4 || TownId == 5 || TownId == 8 || TownId == 10 || TownId == 14 || TownId == 16 || TownId == 17 || TownId == 18)
             {
                 ViewData["Type"] = "true";
             }
             ViewData["Girls"] = townGirls;
+            ViewData["PhoneCall"] = town.PhoneNumberCall;
+            ViewData["PhoneShow"] = town.PhoneNumberStr;
             ViewData["TownId"] = town.TownID;
             ViewData["TownName"] = town.TownName;
             ViewData["MassageType"] = massage.TypeName;
