@@ -7,5 +7,6 @@ namespace MassageGirls.Models
         [Key]
         public int MassageTypeID { get; set; }
         public string TypeName { get; set; }
+        public string UrlName { get; set; }
     }
 }

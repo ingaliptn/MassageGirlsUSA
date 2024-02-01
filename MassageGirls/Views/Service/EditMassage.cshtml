@@ -1,0 +1,42 @@
+﻿@model MassageGirls.Models.MassageType
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section id="primary" class="full-width ws-narrow">
+    <main id="content" role="main">
+        <div class="ws-page">
+            <h2>Edit Town Information</h2>
+            <div class="ws-profile-contact">
+
+                <form asp-action="EditMassage" method="post">
+                    <input type="hidden" asp-for="MassageTypeID" />
+
+                    <div class="form-group">
+                        <label asp-for="TypeName">Massage Name:</label>
+                        <input asp-for="TypeName" class="form-control" />
+                        <span asp-validation-for="TypeName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="UrlName">Massage Url Name:</label>
+                        <input asp-for="UrlName" class="form-control" />
+                        <span asp-validation-for="UrlName" class="text-danger"></span>
+                    </div>
+
+                    <!-- Repeat the above pattern for other fields in the Town model -->
+                    <br />
+
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <a asp-controller="Service" asp-action="IndexMassage" class="btn btn-secondary">Back to List</a>
+                    </div>                <br />
+
+                </form>
+            </div>
+
+        </div>
+    </main>
+</section>
+

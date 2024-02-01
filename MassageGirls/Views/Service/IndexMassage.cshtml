@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MassageGirls.Models.MassageType>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section id="primary" class="full-width ws-narrow">
+    <main id="content" role="main">
+        <div class="ws-page">
+            <h2>Massage Index</h2>
+
+            <table class="table" style="position:center">
+                <thead>
+                    <tr>
+                        <th>Massage Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var mas in Model)
+                    {
+                        <tr>
+                            <td>@mas.TypeName</td>
+                            <td>
+                                <a asp-controller="Service" asp-action="EditMassage" asp-route-id="@mas.MassageTypeID" class="btn btn-primary">Update</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </main>
+</section>
