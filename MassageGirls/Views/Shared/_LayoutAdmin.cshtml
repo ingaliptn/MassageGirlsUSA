@@ -71,8 +71,9 @@
                         <label for="drop" class="css_toggle">&#8801;</label>
                         <input type="checkbox" id="drop" />
                         <ul class="cssMenu">
-                            <li><a asp-action="Index">View Girls</a></li>
-                            <li><a asp-action="IndexTown">View Cities</a></li>
+                            <li><a asp-controller="Service" asp-action="Index">View Girls</a></li>
+                            <li><a asp-controller="Service" asp-action="IndexTown">View Cities</a></li>
+                            <li><a asp-controller="Service" asp-action="IndexMassage">View Massages</a></li>
                         </ul>
                     </nav>
                 </div>
