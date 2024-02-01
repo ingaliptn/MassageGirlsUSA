@@ -7,8 +7,17 @@ namespace MassageGirls.Models
         [Key]
         public int TownID { get; set; }
         public string TownName { get; set; }
+        public string TownUrl { get; set; }
         public string PhoneNumberCall { get; set; }
         public string PhoneNumberStr { get; set; }
+        public string TitleErotic { get; set; }
+        public string TitleHappyEnding { get; set; }
+        public string TitleTantra { get; set; }
+        public string TitleCouples { get; set; }
+        public string TitleAsian { get; set; }
+        public string TitleNuru { get; set; }
+        public string TitleBody { get; set; }
+        public string TitleSensual { get; set; }
         public string EroticHeader { get; set; }
         public string EroticFooter { get; set; }
         public string HappyEndingHeader { get; set; }
