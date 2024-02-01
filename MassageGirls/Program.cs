@@ -122,7 +122,12 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "citiesRoute",
     pattern: "{townName}/{UrlName?}/",
-    defaults: new { controller = "Cities", action = "Cities" });
+    defaults: new { controller = "Cities", action = "Cities" }); 
+
+app.MapControllerRoute(
+    name: "citiesDefaultRoute",
+    pattern: "{townName}/",
+    defaults: new { controller = "Cities", action = "CitiesDefault" }); 
 
 //// 
 
