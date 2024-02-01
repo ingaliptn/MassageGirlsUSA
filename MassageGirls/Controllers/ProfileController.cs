@@ -11,31 +11,94 @@ namespace MassageGirls.Controllers
         {
             _db = bd;
         }
-        public IActionResult Index(int? id, int? TownId)
+
+        [HttpGet("{townName?}/profile/{girlName}/", Name = "Profile")]
+        public IActionResult Profile(string girlName, string? townName)
         {
-            if (TownId != 1)
-            {
-                var town = _db.Town.FirstOrDefault(t => t.TownID == TownId);
-                ViewData["TownName"] = town.TownName;
-            }
-            else
-            {
-                var town = _db.Town.Select(x => x.TownName).Skip(1).ToList();
-                ViewData["TownName"] = town;
-            }
-            //var town = _db.Town.Select(x => x.TownName).Skip(1).ToList();
-            //ViewData["TownName"] = town;
-            var townGirls = _db.GirlProfile.Where(girl => girl.TownID == TownId).Select(girl => girl.GirlName).ToList();
-            
-            ViewData["Girls"] = townGirls;
+            if (townName == null)
+                townName = "home";
 
-            GirlProfile Girls;
-            if (id == null)
-                Girls = _db.GirlProfile.FirstOrDefault();
-            else
-                Girls = _db.GirlProfile.Where(x => x.GirlId == id).FirstOrDefault();
+            int? girlId = GetGirlIdByNameAndTown(townName, girlName);
+            int? townId = GetTownIdByName(townName);
 
-            return View(Girls);
+            if (girlId.HasValue && townId.HasValue)
+            {
+                if (townId != 1)
+                {
+                    var town = _db.Town.FirstOrDefault(t => t.TownID == townId);
+                    ViewData["TownName"] = town.TownName;
+                    townName = town.TownName;
+                }
+                else
+                {
+                    var town = _db.Town.Select(x => x.TownName).Skip(1).ToList();
+                    ViewData["TownName"] = town;
+                    townName = town.FirstOrDefault();
+                }
+                //ViewData["TownName"] = townName;
+
+                var townGirls = _db.GirlProfile
+                    .Where(girl => girl.TownID == townId)
+                    .Select(girl => girl.GirlName)
+                    .ToList();
+                ViewData["Girls"] = townGirls;
+
+                var girlProfile = _db.GirlProfile
+                    .Where(girl => girl.GirlId == girlId)
+                    .FirstOrDefault();
+
+                return View(girlProfile);
+            }
+
+            return NotFound();
         }
+
+        [HttpGet("/profile/{girlName}/", Name = "ProfileMain")]
+        public IActionResult ProfileMain(string girlName, string? townName)
+        {
+            if (townName == null)
+                townName = "home";
+
+            int? girlId = GetGirlIdByNameAndTown(townName, girlName);
+            int? townId = GetTownIdByName(townName);
+
+            if (girlId.HasValue && townId.HasValue)
+            {
+                
+                    var town = _db.Town.Select(x => x.TownName).Skip(1).ToList();
+                    ViewData["TownName"] = town;
+                    townName = town.FirstOrDefault();
+
+                var townGirls = _db.GirlProfile
+                    .Where(girl => girl.TownID == townId)
+                    .Select(girl => girl.GirlName)
+                    .ToList();
+                ViewData["Girls"] = townGirls;
+
+                var girlProfile = _db.GirlProfile
+                    .Where(girl => girl.GirlId == girlId)
+                    .FirstOrDefault();
+
+                return View("Profile", girlProfile);
+            }
+
+            return NotFound();
+        }
+
+        private int? GetGirlIdByNameAndTown(string townName, string girlName)
+        {
+            var girlProfile = _db.GirlProfile
+                .FirstOrDefault(g => g.GirlName == girlName && g.Town.TownName == townName);
+
+            return girlProfile?.GirlId;
+        }
+
+        private int? GetTownIdByName(string townName)
+        {
+            var town = _db.Town.FirstOrDefault(t => t.TownName == townName);
+
+            return town?.TownID;
+        }
+
     }
 }
