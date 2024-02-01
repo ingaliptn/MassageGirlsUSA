@@ -81,23 +81,25 @@
                                 <a>Cities</a>
                                 <input type="checkbox" id="drop-1" />
                                 <ul>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="2" asp-route-MassageId="1">Atlanta</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="3" asp-route-MassageId="1">Austin</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="4" asp-route-MassageId="1">Boston</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="5" asp-route-MassageId="1">Chicago</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="6" asp-route-MassageId="1">Dallas</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="7" asp-route-MassageId="1">Denver</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="8" asp-route-MassageId="1">Houston</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="9" asp-route-MassageId="1">Indianapolis</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="10" asp-route-MassageId="1">Las Vegas</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="11" asp-route-MassageId="1">Los Angeles</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="12" asp-route-MassageId="1">New Orleans</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="13" asp-route-MassageId="1">NYC</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="14" asp-route-MassageId="1">Orlando</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="15" asp-route-MassageId="1">Salt Lake City</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="16" asp-route-MassageId="1">San Diego</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="17" asp-route-MassageId="1">San Francisco</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="18" asp-route-MassageId="1">Scottsdale</a></li>
+                                    @* <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="2" asp-route-MassageId="1">Atlanta</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="3" asp-route-MassageId="1">Austin</a></li> *@
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="atlanta">Atlanta</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="austin">Austin</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="boston">Boston</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="chicago">Chicago</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="dallas">Dallas</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="denver">Denver</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="houston">Houston</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="indianapolis">Indianapolis</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="lasvegas">Las Vegas</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="losangeles">Los Angeles</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="neworleans">New Orleans</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="nyc">NYC</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="orlando">Orlando</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="saltlakecity">Salt Lake City</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="sandiego">San Diego</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="sanfrancisco">San Francisco</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="scottsdale">Scottsdale</a></li>
                                 </ul>
                             </li>
                             <li><a asp-controller="Home" asp-action="Booking">Booking</a></li>
@@ -118,15 +120,12 @@
     </header>
 
 
-        @* ///////////////////////////// *@
+    @* ///////////////////////////// *@
 
-        <div id="wsBody">
-            <div class="ws-wrap">
-                <div id="main">
-                    @RenderBody()
-
-                    <hr class="ws-clear">
-                </div>
+    <div id="wsBody">
+        <div class="ws-wrap">
+            <div id="main">
+                @RenderBody()
 
                 <hr class="ws-clear">
             </div>
@@ -134,7 +133,10 @@
             <hr class="ws-clear">
         </div>
 
-        @* ///////////////////////////// *@
+        <hr class="ws-clear">
+    </div>
+
+    @* ///////////////////////////// *@
 
     <footer id="wsFoot">
         <nav class="ws-footer-nav">
@@ -142,7 +144,6 @@
                 <div class="menu-footer-menu-container">
                     <ul id="menu-footer-menu" class="menu">
                         <li id="menu-item-908" class="menu-item"><a asp-action="Index">Home</a></li>
-                        <!--<li id="menu-item-907" class="menu-item"><a href="#">Cities</a></li>-->
                         <li id="menu-item-904" class="menu-item"><a asp-action="Booking">Booking</a></li>
                         <li id="menu-item-903" class="menu-item"><a asp-action="Contact">Contact</a></li>
                     </ul>
@@ -158,8 +159,9 @@
 
             <hr class="ws-clear">
             <div onclick="scrollToTop()" id="wsBackTop" class="ws-button"><i class="fa fa-angle-up fa-2x" aria-hidden="true"></i></div>
-
         </div>
+        @* <partial name="_LoginPartial" /> *@
+
     </footer>
 
     <script>

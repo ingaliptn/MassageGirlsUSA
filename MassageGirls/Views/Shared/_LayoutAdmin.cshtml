@@ -4,16 +4,6 @@
     <base href="/">
     <meta charset="utf-8">
     <title>Massage Girls Online</title>
-    <meta name="description" content="If you are seeking Atlanta erotic massage, then you should come to us directly. At our agency, we have the best masseuses working for us and they are always thinking about newer ways to satisfy their clients. Just call us and things will be perfect for you - Massage Girls Online.">
-    <meta name="original-source" content="https://massagegirls.online/atlanta/" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="massagegirls.online" />
-    <meta property="og:title" content="Massage Girls Online" />
-    <meta property="og:type" content="article" />
-    <meta property="og:description" content="If you are seeking Atlanta erotic massage, then you should come to us directly. At our agency, we have the best masseuses working for us and they are always thinking about newer ways to satisfy their clients. Just call us and things will be perfect for you - Massage Girls Online." />
-    <meta property="og:url" content="https://massagegirls.online/atlanta/" />
-    <meta name="twitter:title" content="Atlanta Erotic Massage | Massage Girls Online" />
-    <meta name="twitter:description" content="If you are seeking Atlanta erotic massage, then you should come to us directly. At our agency, we have the best masseuses working for us and they are always thinking about newer ways to satisfy their clients. Just call us and things will be perfect for you - Massage Girls Online." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon">
@@ -71,6 +61,7 @@
                         <label for="drop" class="css_toggle">&#8801;</label>
                         <input type="checkbox" id="drop" />
                         <ul class="cssMenu">
+                            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
                             <li><a asp-controller="Service" asp-action="Index">View Girls</a></li>
                             <li><a asp-controller="Service" asp-action="IndexTown">View Cities</a></li>
                             <li><a asp-controller="Service" asp-action="IndexMassage">View Massages</a></li>
@@ -132,6 +123,8 @@
             <div onclick="scrollToTop()" id="wsBackTop" class="ws-button"><i class="fa fa-angle-up fa-2x" aria-hidden="true"></i></div>
 
         </div>
+        <partial name="_LoginPartial" />
+
     </footer>
 
     <script>

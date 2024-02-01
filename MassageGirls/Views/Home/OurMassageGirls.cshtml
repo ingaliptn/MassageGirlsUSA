@@ -15,7 +15,7 @@
                         @foreach (var item in Model)
                         {
                             <li class="widget" itemscope="">
-                                <a asp-controller="Profile" asp-action="Index" asp-route-id="@item.GirlId" asp-route-TownId="@ViewData["TownId"]">
+                                <a asp-controller="Profile" asp-action="ProfileMain" asp-route-girlName="@item.GirlName.ToLower()">
                                     <figure class="ibox"><img src="~/images/masseuse/@item.Photo"></figure>
                                     <h3 class="widget-title">@item.GirlName</h3>
                                 </a>

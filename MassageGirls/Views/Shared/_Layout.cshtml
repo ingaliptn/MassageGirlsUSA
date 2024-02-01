@@ -3,17 +3,17 @@
 <head>
     <base href="/">
     <meta charset="utf-8">
-    <title>Massage Girls Online</title>
-    <meta name="description" content="If you are seeking Atlanta erotic massage, then you should come to us directly. At our agency, we have the best masseuses working for us and they are always thinking about newer ways to satisfy their clients. Just call us and things will be perfect for you - Massage Girls Online.">
-    <meta name="original-source" content="https://massagegirls.online/atlanta/" />
+    <title>Welcome To Massage Girls Online</title>
+    <meta name="description" content="We offer exceptoonal massage services in many cities of the United States - Massage Girls Online.">
+    <meta name="original-source" content="https://massagegirls.online/" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="massagegirls.online" />
-    <meta property="og:title" content="Massage Girls Online" />
+    <meta property="og:title" content="Welcome To Massage Girls Online" />
     <meta property="og:type" content="article" />
-    <meta property="og:description" content="If you are seeking Atlanta erotic massage, then you should come to us directly. At our agency, we have the best masseuses working for us and they are always thinking about newer ways to satisfy their clients. Just call us and things will be perfect for you - Massage Girls Online." />
-    <meta property="og:url" content="https://massagegirls.online/atlanta/" />
-    <meta name="twitter:title" content="Atlanta Erotic Massage | Massage Girls Online" />
-    <meta name="twitter:description" content="If you are seeking Atlanta erotic massage, then you should come to us directly. At our agency, we have the best masseuses working for us and they are always thinking about newer ways to satisfy their clients. Just call us and things will be perfect for you - Massage Girls Online." />
+    <meta property="og:description" content="We offer exceptoonal massage services in many cities of the United States - Massage Girls Online." />
+    <meta property="og:url" content="https://massagegirls.online/" />
+    <meta name="twitter:title" content="Welcome To Massage Girls Online" />
+    <meta name="twitter:description" content="We offer exceptoonal massage services in many cities of the United States - Massage Girls Online." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon">
@@ -92,23 +92,43 @@
                                 <a>Cities</a>
                                 <input type="checkbox" id="drop-1" />
                                 <ul>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="2" asp-route-MassageId="1">Atlanta</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="3" asp-route-MassageId="1">Austin</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="4" asp-route-MassageId="1">Boston</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="5" asp-route-MassageId="1">Chicago</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="6" asp-route-MassageId="1">Dallas</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="7" asp-route-MassageId="1">Denver</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="8" asp-route-MassageId="1">Houston</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="9" asp-route-MassageId="1">Indianapolis</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="10" asp-route-MassageId="1">Las Vegas</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="11" asp-route-MassageId="1">Los Angeles</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="12" asp-route-MassageId="1">New Orleans</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="13" asp-route-MassageId="1">NYC</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="14" asp-route-MassageId="1">Orlando</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="15" asp-route-MassageId="1">Salt Lake City</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="16" asp-route-MassageId="1">San Diego</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="17" asp-route-MassageId="1">San Francisco</a></li>
-                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="18" asp-route-MassageId="1">Scottsdale</a></li>
+                                    @*                                     <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="2" asp-route-MassageId="1">Atlanta</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-TownId="3" asp-route-MassageId="1">Austin</a></li>*@
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="atlanta">Atlanta</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="austin">Austin</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="boston">Boston</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="chicago">Chicago</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="dallas">Dallas</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="denver">Denver</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="houston">Houston</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="indianapolis">Indianapolis</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="lasvegas">Las Vegas</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="losangeles">Los Angeles</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="neworleans">New Orleans</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="nyc">NYC</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="orlando">Orlando</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="saltlakecity">Salt Lake City</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="sandiego">San Diego</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="sanfrancisco">San Francisco</a></li>
+                                    <li><a asp-controller="Cities" asp-action="Cities" asp-route-TownName="scottsdale">Scottsdale</a></li>
+
+                                    @* <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="Atlanta" asp-route-massageName="EROTIC MASSAGE">Atlanta</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="Austin" asp-route-massageName="EROTIC MASSAGE">Austin</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="Boston" asp-route-massageName="EROTIC MASSAGE">Boston</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="Chicago" asp-route-massageName="EROTIC MASSAGE">Chicago</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="Dallas" asp-route-massageName="EROTIC MASSAGE">Dallas</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="Denver" asp-route-massageName="EROTIC MASSAGE">Denver</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="Houston" asp-route-massageName="EROTIC MASSAGE">Houston</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="Indianapolis" asp-route-massageName="EROTIC MASSAGE">Indianapolis</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="Las Vegas" asp-route-massageName="EROTIC MASSAGE">Las Vegas</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="Los Angeles" asp-route-massageName="EROTIC MASSAGE">Los Angeles</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="New Orleans" asp-route-massageName="EROTIC MASSAGE">New Orleans</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="NYC" asp-route-massageName="EROTIC MASSAGE">NYC</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="Orlando" asp-route-massageName="EROTIC MASSAGE">Orlando</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="Salt Lake City" asp-route-massageName="EROTIC MASSAGE">Salt Lake City</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="San Diego" asp-route-massageName="EROTIC MASSAGE">San Diego</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="San Francisco" asp-route-massageName="EROTIC MASSAGE">San Francisco</a></li>
+                                    <li><a asp-controller="Home" asp-action="Cities" asp-route-townName="Scottsdale" asp-route-massageName="EROTIC MASSAGE">Scottsdale</a></li> *@
                                 </ul>
                             </li>
                             <li><a asp-controller="Home" asp-action="Booking">Booking</a></li>
@@ -179,7 +199,7 @@
             <div onclick="scrollToTop()" id="wsBackTop" class="ws-button"><i class="fa fa-angle-up fa-2x" aria-hidden="true"></i></div>
 
         </div>
-        <partial name="_LoginPartial" />
+        @* <partial name="_LoginPartial" /> *@
 
     </footer>
 

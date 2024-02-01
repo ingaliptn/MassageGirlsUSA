@@ -25,7 +25,6 @@
                 </div>
 
             </article>
-            <!-- #post-675 -->
 
         </div>
 
@@ -95,7 +94,7 @@
                                         <option value="">-- Select Girl --</option>
                                         @foreach (var girlName in ViewData["Girls"] as List<string>)
                                         {
-                                                                        <option value="@girlName">@girlName</option>
+                                                                            <option value="@girlName">@girlName</option>
                                         }
                                     </select>
                                 </div>
@@ -120,26 +119,6 @@
                                         {
                                             <option value="@Model.Town.TownName">@Model.Town.TownName</option>
                                         }
-
-                                        @* <option value="">-- Select City --</option>
-                                        @foreach (var cityName in ViewData["TownName"] as List<string>)
-                                        {
-                                        <option value="@cityName">@cityName</option>
-                                        } *@
-
-                                        @* @try
-                                        {
-                                        <option value="">-- Select City --</option>
-                                        @foreach (var cityName in ViewData["TownName"] as List<string>)
-                                        {
-                                        <option value="@cityName">@cityName</option>
-                                        }
-                                        }
-                                        catch (Exception)
-                                        {
-                                        <option value="@Model.Town.TownName">@Model.Town.TownName</option>
-
-                                        } *@
 
                                     </select>
                                 </div>

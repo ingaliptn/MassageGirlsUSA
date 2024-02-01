@@ -174,8 +174,8 @@
                     @foreach(var item in Model)
                     {
                         <li class="widget" itemscope="">
-                            <a asp-controller="Profile" asp-action="Index" asp-route-id="@item.GirlId" asp-route-TownId="1">
-                            <figure class="ibox"><img src="~/images/masseuse/@item.Photo"></figure>
+                            <a asp-controller="Profile" asp-action="ProfileMain" asp-route-girlName="@item.GirlName.ToLower()">
+                                <figure class="ibox"><img src="~/images/masseuse/@item.Photo"></figure>
                             <h3 class="widget-title" itemprop="name" style="height: 40px;">@item.GirlName</h3>
                         </a>
                     </li>
@@ -183,7 +183,7 @@
 
                 </ul>
 
-                <div class="ws-button-div-center"><a asp-action="OurMassageGirls" class="ws-button">See All</a></div>
+                <div class="ws-button-div-center"><a asp-controller="Home" asp-action="OurMassageGirls" class="ws-button">See All</a></div>
             </div>
         </div>
     </section>
