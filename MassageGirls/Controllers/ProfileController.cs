@@ -88,14 +88,15 @@ namespace MassageGirls.Controllers
         private int? GetGirlIdByNameAndTown(string townName, string girlName)
         {
             var girlProfile = _db.GirlProfile
-                .FirstOrDefault(g => g.GirlName == girlName && g.Town.TownName == townName);
+                .FirstOrDefault(g => g.GirlName == girlName && g.Town.TownUrl == townName);
 
             return girlProfile?.GirlId;
         }
 
         private int? GetTownIdByName(string townName)
         {
-            var town = _db.Town.FirstOrDefault(t => t.TownName == townName);
+            var town = _db.Town.FirstOrDefault(t => t.TownUrl == townName);
+            ViewData["TownUrl"] = town.TownUrl; // Pass UrlName to the view
 
             return town?.TownID;
         }
