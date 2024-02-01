@@ -27,7 +27,7 @@
                 @foreach (var item in Model)
                 {
                     <li class="widget" itemscope="">
-                        <a asp-controller="Profile" asp-action="Profile" asp-route-townName="@ViewData["TownName"]" asp-route-girlName="@item.GirlName.ToLower()">
+                        <a asp-controller="Profile" asp-action="Profile" asp-route-townName="@ViewData["TownUrl"]" asp-route-girlName="@item.GirlName.ToLower()">
                             <figure class="ibox"><img src="~/images/masseuse/@item.Photo"></figure>
                             <h3 class="widget-title">@item.GirlName</h3>
                         </a>
@@ -53,7 +53,7 @@
                                 <h3 class="widget-title" itemprop="name" style="height: 20px;"> Erotic Massage </h3>
                                 <div class="summary"><p style="height: 88px;">As the name suggests it is all about getting erotic massage while you enjoy health benefits too. This kind of massage is the only thing that can satisfy your thoroughly.</p></div>
                                 <div class="ws-button-div-center">
-                                    <a asp-route-townName="@ViewData["TownName"]" asp-action="Cities" class="ws-button">Explore</a>
+                                    <a asp-route-townName="@ViewData["TownUrl"]" asp-action="CitiesDefault" class="ws-button">Explore</a>
                                 </div>
                             </li>
 
@@ -65,7 +65,7 @@
                                 <h3 class="widget-title" itemprop="name" style="height: 20px;"> Happy Ending Massage </h3>
                                 <div class="summary"><p style="height: 88px;">If you want total satisfaction then happy ending massage is the right thing for you. Come to us and experience the best without any worries.</p></div>
                                 <div class="ws-button-div-center">
-                                    <a asp-route-UrlName="happy-ending" asp-route-townName="@ViewData["TownName"]" asp-action="Cities" class="ws-button">Explore</a>
+                                    <a asp-route-UrlName="happy-ending" asp-route-townName="@ViewData["TownUrl"]" asp-action="Cities" class="ws-button">Explore</a>
                                 </div>
                             </li>
 
@@ -78,7 +78,7 @@
                                 <h3 class="widget-title" itemprop="name" style="height: 20px;"> Tantra Massage </h3>
                                 <div class="summary"><p style="height: 88px;">Get ready to experience the most amazing massage of your life with tantra massage. Tantra massage will not just please you but it will make you feel damn amazing too.</p></div>
                                 <div class="ws-button-div-center">
-                                    <a asp-route-UrlName="tantra" asp-route-townName="@ViewData["TownName"]" asp-action="Cities" class="ws-button">Explore</a>
+                                    <a asp-route-UrlName="tantra" asp-route-townName="@ViewData["TownUrl"]" asp-action="Cities" class="ws-button">Explore</a>
                                 </div>
                             </li>
 
@@ -90,7 +90,7 @@
                                 <h3 class="widget-title" itemprop="name" style="height: 20px;"> Couples Massage </h3>
                                 <div class="summary"> <p style="height: 88px;">When we are talking about erotic stuff then couples massage is the only thing you should opt for when you want to experience pleasures with your partner.</p></div>
                                 <div class="ws-button-div-center">
-                                    <a asp-route-UrlName="couples" asp-route-townName="@ViewData["TownName"]" asp-action="Cities" class="ws-button">Explore</a>
+                                    <a asp-route-UrlName="couples" asp-route-townName="@ViewData["TownUrl"]" asp-action="Cities" class="ws-button">Explore</a>
                                 </div>
                                 <hr class="ws-clear">
 
@@ -104,7 +104,7 @@
                                 <h3 class="widget-title" itemprop="name" style="height: 20px;"> Asian Massage </h3>
                                 <div class="summary"> <p style="height: 88px;">Asian massage is simply the best and if you are hiring Asian masseuses for this massage then you can enjoy every single second of this session.</p></div>
                                 <div class="ws-button-div-center">
-                                    <a asp-route-UrlName="asian" asp-route-townName="@ViewData["TownName"]" asp-action="Cities" class="ws-button">Explore</a>
+                                    <a asp-route-UrlName="asian" asp-route-townName="@ViewData["TownUrl"]" asp-action="Cities" class="ws-button">Explore</a>
                                 </div>
                                 <hr class="ws-clear">
 
@@ -118,7 +118,7 @@
                                 <h3 class="widget-title" itemprop="name" style="height: 20px;"> NURU Massage </h3>
                                 <div class="summary"> <p style="height: 88px;">NURU Massage is all about slippery gel and sexy masseuses who are willing to provide you the best massage experience of your life.</p></div>
                                 <div class="ws-button-div-center">
-                                    <a asp-route-UrlName="NURU" asp-route-townName="@ViewData["TownName"]" asp-action="Cities" class="ws-button">Explore</a>
+                                    <a asp-route-UrlName="NURU" asp-route-townName="@ViewData["TownUrl"]" asp-action="Cities" class="ws-button">Explore</a>
                                 </div>
                                 <hr class="ws-clear">
 
@@ -134,7 +134,7 @@
                                     <h3 class="widget-title" itemprop="name" style="height: 20px;"> Body Rubs </h3>
                                     <div class="summary"> <p style="height: 88px;">Body rubs are a great way to relax, rejuvenate, and reduce stress.</p></div>
                                     <div class="ws-button-div-center">
-                                        <a asp-route-UrlName="bodyrubs" asp-route-townName="@ViewData["TownName"]" asp-action="Cities" class="ws-button">Explore</a>
+                                        <a asp-route-UrlName="bodyrubs" asp-route-townName="@ViewData["TownUrl"]" asp-action="Cities" class="ws-button">Explore</a>
                                     </div>
                                     <hr class="ws-clear">
 
@@ -148,7 +148,7 @@
                                     <h3 class="widget-title" itemprop="name" style="height: 20px;"> Sensual Massage </h3>
                                     <div class="summary"> <p style="height: 88px;">Sensual massage is an amazing experience that can help to relax and rejuvenate your body.</p></div>
                                     <div class="ws-button-div-center">
-                                        <a asp-route-UrlName="sensual" asp-route-townName="@ViewData["TownName"]" asp-action="Cities" class="ws-button">Explore</a>
+                                        <a asp-route-UrlName="sensual" asp-route-townName="@ViewData["TownUrl"]" asp-action="Cities" class="ws-button">Explore</a>
                                     </div>
                                     <hr class="ws-clear">
 
