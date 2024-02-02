@@ -42,6 +42,38 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 
 var app = builder.Build();
 
+////////Add trailing slash
+
+app.Use(async (context, next) =>
+{
+    var request = context.Request;
+
+    // Exclude paths for static files and specific files
+    var excludedPaths = new[] { "/css/", "/images/", "/js/", "/lib/", "/favicon.ico", "/sitemap.xml" };
+
+    // Exclude known file extensions
+    var excludedExtensions = new[] { ".css", ".js", ".png", ".jpg", ".jpeg", ".gif", ".ico", ".xml" };
+
+    if (excludedPaths.Any(path => request.Path.StartsWithSegments(path, StringComparison.OrdinalIgnoreCase)) ||
+        excludedExtensions.Any(ext => request.Path.Value.EndsWith(ext, StringComparison.OrdinalIgnoreCase)))
+    {
+        await next();
+        return;
+    }
+
+    // Redirect to URL with trailing slash if it doesn't have one
+    if (!request.Path.Value.EndsWith("/"))
+    {
+        var newPath = request.Path + "/";
+        var newUrl = $"{request.Scheme}://{request.Host}{newPath}{request.QueryString}";
+        context.Response.Redirect(newUrl);
+        return;
+    }
+
+    await next();
+});
+
+
 ////////
 app.UseStaticFiles(new StaticFileOptions
 {
@@ -83,27 +115,27 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "bookingRoute",
-    pattern: "Booking/",
+    pattern: "booking/",
     defaults: new { controller = "Home", action = "Booking" });
 
 app.MapControllerRoute(
     name: "thankYouRoute",
-    pattern: "ThankYou/",
+    pattern: "thankyou/",
     defaults: new { controller = "Home", action = "ThankYou" });
 
 app.MapControllerRoute(
     name: "contactRoute",
-    pattern: "Contact/",
+    pattern: "contact/",
     defaults: new { controller = "Home", action = "Contact" });
 
 app.MapControllerRoute(
     name: "errorRoute",
-    pattern: "Error/",
+    pattern: "error/",
     defaults: new { controller = "Home", action = "Error" });
 
 app.MapControllerRoute(
     name: "ourMassageGirlsRoute",
-    pattern: "OurMassageGirls/",
+    pattern: "our-girls/",
     defaults: new { controller = "Home", action = "OurMassageGirls" });
 
 ////
@@ -131,44 +163,41 @@ app.MapControllerRoute(
 
 //// 
 
-app.MapControllerRoute(
-    name: "serviceRoute",
-    pattern: "Service/",
-    defaults: new { controller = "Service", action = "Index" });
+//app.MapControllerRoute(
+//    name: "serviceRoute",
+//    pattern: "Service/",
+//    defaults: new { controller = "Service", action = "Index" });
 
-app.MapControllerRoute(
-    name: "createRoute",
-    pattern: "Create/",
-    defaults: new { controller = "Service", action = "Create" });
+//app.MapControllerRoute(
+//    name: "createRoute",
+//    pattern: "Create/",
+//    defaults: new { controller = "Service", action = "Create" });
 
-app.MapControllerRoute(
-    name: "editRoute",
-    pattern: "Edit/",
-    defaults: new { controller = "Service", action = "Edit" });
+//app.MapControllerRoute(
+//    name: "editRoute",
+//    pattern: "Edit/",
+//    defaults: new { controller = "Service", action = "Edit" });
 
-app.MapControllerRoute(
-    name: "editMassageRoute",
-    pattern: "EditMassage/",
-    defaults: new { controller = "Service", action = "EditMassage" });
+//app.MapControllerRoute(
+//    name: "editMassageRoute",
+//    pattern: "EditMassage/",
+//    defaults: new { controller = "Service", action = "EditMassage" });
 
-app.MapControllerRoute(
-    name: "editTownRoute",
-    pattern: "EditTown/",
-    defaults: new { controller = "Service", action = "EditTown" });
+//app.MapControllerRoute(
+//    name: "editTownRoute",
+//    pattern: "EditTown/",
+//    defaults: new { controller = "Service", action = "EditTown" });
 
-app.MapControllerRoute(
-    name: "indexMassageRoute",
-    pattern: "IndexMassage/",
-    defaults: new { controller = "Service", action = "IndexMassage" });
+//app.MapControllerRoute(
+//    name: "indexMassageRoute",
+//    pattern: "IndexMassage/",
+//    defaults: new { controller = "Service", action = "IndexMassage" });
 
-app.MapControllerRoute(
-    name: "indexTownRoute",
-    pattern: "IndexTown/",
-    defaults: new { controller = "Service", action = "IndexTown" });
+//app.MapControllerRoute(
+//    name: "indexTownRoute",
+//    pattern: "IndexTown/",
+//    defaults: new { controller = "Service", action = "IndexTown" });
 
 ////
-
-
-
 
 app.Run();
