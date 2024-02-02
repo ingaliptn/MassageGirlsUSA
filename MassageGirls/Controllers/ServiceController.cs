@@ -87,7 +87,7 @@ namespace MassageGirls.Controllers
             _db.SaveChanges();
             return RedirectToAction("IndexTown");
         }
-        [HttpGet("/EditMassage", Name = "EditMassage")]
+        [HttpGet("Service/EditMassage", Name = "EditMassage")]
         public IActionResult EditMassage(int id)
         {
             MassageType mas = _db.MassageType.Find(id);
