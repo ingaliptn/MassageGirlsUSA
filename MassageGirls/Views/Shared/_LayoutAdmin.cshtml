@@ -104,10 +104,13 @@
             <div class="ws-wrap">
                 <div class="menu-footer-menu-container">
                     <ul id="menu-footer-menu" class="menu">
-                        <li id="menu-item-908" class="menu-item"><a asp-action="Index">Home</a></li>
-                        <!--<li id="menu-item-907" class="menu-item"><a href="#">Cities</a></li>-->
-                        <li id="menu-item-904" class="menu-item"><a asp-action="Booking">Booking</a></li>
-                        <li id="menu-item-903" class="menu-item"><a asp-action="Contact">Contact</a></li>
+                        <li id="menu-item-908" class="menu-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li id="menu-item-904" class="menu-item">
+                            <a href="@Url.Action("Booking", "Home")/">Booking</a>
+                        </li>
+                        <li id="menu-item-903" class="menu-item">
+                            <a href="@Url.Action("Contact", "Home")/">Contact</a>
+                        </li>
                     </ul>
                 </div>
             </div>

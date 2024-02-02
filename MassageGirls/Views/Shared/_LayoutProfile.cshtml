@@ -15,7 +15,7 @@
         <title>@Model.GirlName | Massage Girls Online</title>
     }
     <meta name="description" content="">
-    <meta name="original-source" content="https://massagegirls.online/scottsdale/profile/@Model.GirlName/">
+    <meta name="original-source" content="https://massagegirls.online/@ViewData["TownUrl"]/profile/@Model.GirlName.ToLower()/">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="massagegirls.online">
     @* <meta property="og:title" content="Scottsdale Masseuse Belinda | Massage Girls Online"> *@
@@ -29,7 +29,7 @@
     }
     <meta property="og:type" content="article">
     <meta property="og:description" content="">
-    <meta property="og:url" content="https://massagegirls.online/scottsdale/profile/@Model.GirlName/">
+    <meta property="og:url" content="https://massagegirls.online/@ViewData["TownUrl"]/profile/@Model.GirlName.ToLower()/">
 
     @if (Model.TownID != 1)
     {
@@ -46,7 +46,7 @@
     <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="~/images/favicon.ico" type="image/x-icon">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="canonical" href="https://massagegirls.online/scottsdale/profile/@Model.GirlName/">
+    <link rel="canonical" href="https://massagegirls.online/@ViewData["TownUrl"]/profile/@Model.GirlName.ToLower()/">
     <link rel="stylesheet" type="text/css" media="all" href="~/css/style.css?version=1.3">
     <link rel="dns-prefetch" href="https://use.fontawesome.com/">
     <link rel="stylesheet" id="formidable-css" href="~/css/formidableforms.css" type="text/css" media="all">
@@ -106,28 +106,31 @@
                                 <a>Cities</a>
                                 <input type="checkbox" id="drop-1" />
                                 <ul>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="atlanta">Atlanta</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="austin">Austin</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="boston">Boston</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="chicago">Chicago</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="dallas">Dallas</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="denver">Denver</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="houston">Houston</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="indianapolis">Indianapolis</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="lasvegas">Las Vegas</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="losangeles">Los Angeles</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="neworleans">New Orleans</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="nyc">NYC</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="orlando">Orlando</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="saltlakecity">Salt Lake City</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="sandiego">San Diego</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="sanfrancisco">San Francisco</a></li>
-                                    <li><a asp-controller="Cities" asp-action="CitiesDefault" asp-route-TownName="scottsdale">Scottsdale</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "atlanta" })/">Atlanta</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "austin" })/">Austin</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "boston" })/">Boston</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "chicago" })/">Chicago</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "dallas" })/">Dallas</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "denver" })/">Denver</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "houston" })/">Houston</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "indianapolis" })/">Indianapolis</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "lasvegas" })/">Las Vegas</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "losangeles" })/">Los Angeles</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "neworleans" })/">New Orleans</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "nyc" })/">NYC</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "orlando" })/">Orlando</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "saltlakecity" })/">Salt Lake City</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "sandiego" })/">San Diego</a></li>
+                                    <li><a href="@Url.Action("CitiesDefault", "Cities", new { townName = "sanfrancisco" })/">San Francisco</a></li>
+                                    <li><a href=".@Url.Action("CitiesDefault", "Cities", new { townName = "scottsdale" })/">Scottsdale</a></li>
                                 </ul>
                             </li>
-                            <li><a asp-controller="Home" asp-action="Booking">Booking</a></li>
-                            <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
-                            @if (User.IsInRole("Admin"))
+                            <li id="menu-item-904" class="menu-item">
+                                <a href=".@Url.Action("Booking", "Home")/">Booking</a>
+                            </li>
+                            <li id="menu-item-903" class="menu-item">
+                                <a href=".@Url.Action("Contact", "Home")/">Contact</a>
+                            </li>
                             {
                                 <li><a asp-controller="Service" asp-action="Index">Admin Panel</a></li>
                             }
@@ -136,7 +139,7 @@
                 </div>
 
                 <div class="site_hotline">
-                    <a href="tel:4632097850"> 463-209-7850</a>
+                    <a href="@ViewData["PhoneCall"]">@ViewData["PhoneShow"]</a>
                 </div>
             </div>
         </div>
@@ -167,10 +170,15 @@
             <div class="ws-wrap">
                 <div class="menu-footer-menu-container">
                     <ul id="menu-footer-menu" class="menu">
-                        <li id="menu-item-908" class="menu-item"><a asp-action="Index">Home</a></li>
-                        <!--<li id="menu-item-907" class="menu-item"><a href="#">Cities</a></li>-->
-                        <li id="menu-item-904" class="menu-item"><a asp-action="Booking">Booking</a></li>
-                        <li id="menu-item-903" class="menu-item"><a asp-action="Contact">Contact</a></li>
+                        <li id="menu-item-908" class="menu-item">
+                            <a href="./">Home</a>
+                        </li>
+                        <li id="menu-item-904" class="menu-item">
+                            <a href="@Url.Action("Booking", "Home")/">Booking</a>
+                        </li>
+                        <li id="menu-item-903" class="menu-item">
+                            <a href="@Url.Action("Contact", "Home")/">Contact</a>
+                        </li>
                     </ul>
                 </div>
             </div>
