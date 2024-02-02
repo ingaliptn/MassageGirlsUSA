@@ -2989,7 +2989,7 @@ header.site_header {
 .site-nav-collapse {
 	order: 0;
 	height: 100%;
-	margin-left: auto;
+	/*margin-left: auto;*/
 }
 
 .site_hotline {
