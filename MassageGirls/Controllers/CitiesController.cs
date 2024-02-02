@@ -36,6 +36,7 @@ namespace MassageGirls.Controllers
                 .ToList();
 
             ViewData["MassageType"] = massage.TypeName;
+            ViewData["MassageUrl"] = massage.UrlName + "/";
             ViewData["UrlName"] = UrlName; // Pass UrlName to the view
             ViewData["TownUrl"] = town.TownUrl; // Pass UrlName to the view
 

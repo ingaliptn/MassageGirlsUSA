@@ -97,6 +97,9 @@ namespace MassageGirls.Controllers
         {
             var town = _db.Town.FirstOrDefault(t => t.TownUrl == townName);
             ViewData["TownUrl"] = town.TownUrl; // Pass UrlName to the view
+            ViewData["PhoneCall"] = town.PhoneNumberCall;
+            ViewData["PhoneShow"] = town.PhoneNumberStr;
+
 
             return town?.TownID;
         }
