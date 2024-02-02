@@ -44,7 +44,7 @@
                 </figure>
 
                 <div class="&quot;ws-button-div-center&#39;">
-                    <p><a class="ws-button" asp-action="Booking">Schedule an Appointment</a></p>
+                    <p><a class="ws-button" href=".@Url.Action("Booking", "Home")/">Schedule an Appointment</a></p>
                 </div>
             </div>
         </div>
@@ -151,7 +151,7 @@
                 </div>
 
                 <div class="&quot;ws-button-div-center&#39;">
-                    <p><a class="ws-button" asp-action="Booking">Schedule an Appointment</a></p>
+                    <p><a class="ws-button" href=".@Url.Action("Booking", "Home")/">Schedule an Appointment</a></p>
                 </div>
                 <p><em>Rush and Drama FREE</em></p>
             </div>
@@ -174,8 +174,8 @@
                     @foreach(var item in Model)
                     {
                         <li class="widget" itemscope="">
-                            <a asp-controller="Profile" asp-action="ProfileMain" asp-route-girlName="@item.GirlName.ToLower()">
-                                <figure class="ibox"><img src="~/images/masseuse/@item.Photo"></figure>
+                            <a href=".@Url.Action("ProfileMain", "Profile", new { girlName = item.GirlName.ToLower() })/">
+                            <figure class="ibox"><img src="~/images/masseuse/@item.Photo"></figure>
                             <h3 class="widget-title" itemprop="name" style="height: 40px;">@item.GirlName</h3>
                         </a>
                     </li>
@@ -183,7 +183,9 @@
 
                 </ul>
 
-                <div class="ws-button-div-center"><a asp-controller="Home" asp-action="OurMassageGirls" class="ws-button">See All</a></div>
+                <div class="ws-button-div-center">
+                    <a href=".@Url.Action("OurMassageGirls", "Home")/" class="ws-button">See All</a>
+                </div>
             </div>
         </div>
     </section>
