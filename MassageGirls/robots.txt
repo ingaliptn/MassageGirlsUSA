@@ -1,0 +1,14 @@
+User-agent: *
+
+Allow: /*.js
+Allow: /*.css
+Allow: /*.jpg
+Allow: /*.gif
+Allow: /*.png
+Allow: /images
+Disallow: /*?*
+Disallow: /booking/
+Disallow: /contact/
+Disallow: /our-girls/
+
+Sitemap: https://massagegirls.online/sitemap.xml

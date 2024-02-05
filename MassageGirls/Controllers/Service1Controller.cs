@@ -7,38 +7,41 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace MassageGirls.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class ServiceController : Controller
+    public class Service1Controller : Controller
     {
         private readonly AppDbContext _db;
-        public ServiceController(AppDbContext db)
+        public Service1Controller(AppDbContext db)
         {
             _db = db;
         }
-        [HttpGet("/Service", Name = "Service")]
+        [HttpGet("Index")]
         public IActionResult Index()
         {
             IEnumerable<GirlProfile> girls = _db.GirlProfile.ToList();
             return View(girls);
         }
-        [HttpGet("/Town", Name = "IndexTown")]
+        [HttpGet("IndexTown")]
         public IActionResult IndexTown()
         {
             IEnumerable<Town> town = _db.Town.ToList();
             return View(town);
         }
-        [HttpGet("/Massage", Name = "IndexMassage")]
+        
+        [HttpGet("Service/IndexMassage", Name = "IndexMassage")]
         public IActionResult IndexMassage()
         {
             IEnumerable<MassageType> mas = _db.MassageType.ToList();
             return View(mas);
         }
-        [HttpGet("/CreateGirl", Name = "Create")]
+
+        [HttpGet("Create")]
         public IActionResult Create()
         {
             ViewBag.MassageTypes = new SelectList(_db.MassageType, "MassageTypeID", "TypeName");
             ViewBag.Towns = new SelectList(_db.Town, "TownID", "TownName");
             return View();
         }
+        
         [HttpPost]
         public IActionResult Create(GirlProfile profile)
         {
@@ -46,7 +49,8 @@ namespace MassageGirls.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-        [HttpGet("/EditGirl", Name = "Edit")]
+        
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             GirlProfile girlProfile = _db.GirlProfile.Find(id);
@@ -61,6 +65,7 @@ namespace MassageGirls.Controllers
 
             return View(girlProfile);
         }
+        
         [HttpPost]
         public IActionResult Edit(GirlProfile girlProfile)
         {
@@ -68,7 +73,8 @@ namespace MassageGirls.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-        [HttpGet("/EditTown", Name = "EditTown")]
+
+        [HttpGet]
         public IActionResult EditTown(int id)
         {
             Town town = _db.Town.Find(id);
@@ -80,14 +86,21 @@ namespace MassageGirls.Controllers
 
             return View(town);
         }
+
         [HttpPost]
         public IActionResult EditTown(Town town)
         {
-            _db.Town.Update(town);
-            _db.SaveChanges();
-            return RedirectToAction("IndexTown");
+            if (ModelState.IsValid)
+            {
+                _db.Town.Update(town);
+                _db.SaveChanges();
+                return RedirectToAction("IndexTown");
+            }
+
+            // If ModelState is not valid, return to the edit view with validation errors
+            return View(town);
         }
-        [HttpGet("Service/EditMassage", Name = "EditMassage")]
+        [HttpGet]
         public IActionResult EditMassage(int id)
         {
             MassageType mas = _db.MassageType.Find(id);

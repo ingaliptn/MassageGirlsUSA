@@ -44,6 +44,8 @@ var app = builder.Build();
 
 ////////Add trailing slash
 
+var excludedTrailingSlashPaths = new[] { "/Service", "/robots.txt" };
+
 app.Use(async (context, next) =>
 {
     var request = context.Request;
@@ -52,10 +54,17 @@ app.Use(async (context, next) =>
     var excludedPaths = new[] { "/css/", "/images/", "/js/", "/lib/", "/favicon.ico", "/sitemap.xml" };
 
     // Exclude known file extensions
-    var excludedExtensions = new[] { ".css", ".js", ".png", ".jpg", ".jpeg", ".gif", ".ico", ".xml" };
+    var excludedExtensions = new[] { ".css", ".js", ".png", ".jpg", ".jpeg", ".gif", ".ico", ".xml", ".txt" };
 
     if (excludedPaths.Any(path => request.Path.StartsWithSegments(path, StringComparison.OrdinalIgnoreCase)) ||
         excludedExtensions.Any(ext => request.Path.Value.EndsWith(ext, StringComparison.OrdinalIgnoreCase)))
+    {
+        await next();
+        return;
+    }
+
+    // Exclude paths from trailing slash logic
+    if (excludedTrailingSlashPaths.Any(path => request.Path.StartsWithSegments(path, StringComparison.OrdinalIgnoreCase)))
     {
         await next();
         return;
@@ -66,12 +75,13 @@ app.Use(async (context, next) =>
     {
         var newPath = request.Path + "/";
         var newUrl = $"{request.Scheme}://{request.Host}{newPath}{request.QueryString}";
-        context.Response.Redirect(newUrl);
+        context.Response.Redirect(newUrl, permanent: true); // Use permanent redirect
         return;
     }
 
     await next();
 });
+
 
 
 ////////
@@ -97,6 +107,13 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.Map("/robots.txt", subApp => {
+    subApp.Run(async context => {
+        context.Response.ContentType = "text/plain";
+        await context.Response.SendFileAsync("wwwroot/robots.txt");
+    });
+});
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -159,44 +176,50 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "citiesDefaultRoute",
     pattern: "{townName}/",
-    defaults: new { controller = "Cities", action = "CitiesDefault" }); 
+    defaults: new { controller = "Cities", action = "CitiesDefault" });
 
 //// 
+///
+//app.MapControllerRoute(
+//    name: "serviceRoute",
+//    pattern: "/Service/{action=Index}/{id?}",
+//    defaults: new { controller = "Service" });
 
 //app.MapControllerRoute(
 //    name: "serviceRoute",
-//    pattern: "Service/",
+//    pattern: "{controller=Service}/{action=Index}",
 //    defaults: new { controller = "Service", action = "Index" });
 
 //app.MapControllerRoute(
+//    name: "indexTownRoute",
+//    pattern: "{controller=Service}/{action=IndexTown}",
+//    defaults: new { controller = "Service", action = "IndexTown" });
+
+//app.MapControllerRoute(
+//    name: "indexMassageRoute",
+//    pattern: "{controller=Service}/{action=IndexMassage}",
+//    defaults: new { controller = "Service", action = "IndexMassage" });
+
+//app.MapControllerRoute(
 //    name: "createRoute",
-//    pattern: "Create/",
+//    pattern: "{controller=Service}/{action=Create}",
 //    defaults: new { controller = "Service", action = "Create" });
 
 //app.MapControllerRoute(
 //    name: "editRoute",
-//    pattern: "Edit/",
+//    pattern: "{controller=Service}/{action=Edit}/{id?}",
 //    defaults: new { controller = "Service", action = "Edit" });
 
 //app.MapControllerRoute(
-//    name: "editMassageRoute",
-//    pattern: "EditMassage/",
-//    defaults: new { controller = "Service", action = "EditMassage" });
-
-//app.MapControllerRoute(
 //    name: "editTownRoute",
-//    pattern: "EditTown/",
+//    pattern: "{controller=Service}/{action=EditTown}/{id?}",
 //    defaults: new { controller = "Service", action = "EditTown" });
 
 //app.MapControllerRoute(
-//    name: "indexMassageRoute",
-//    pattern: "IndexMassage/",
-//    defaults: new { controller = "Service", action = "IndexMassage" });
+//    name: "editMassageRoute",
+//    pattern: "{controller=Service}/{action=EditMassage}/{id?}",
+//    defaults: new { controller = "Service", action = "EditMassage" });
 
-//app.MapControllerRoute(
-//    name: "indexTownRoute",
-//    pattern: "IndexTown/",
-//    defaults: new { controller = "Service", action = "IndexTown" });
 
 ////
 

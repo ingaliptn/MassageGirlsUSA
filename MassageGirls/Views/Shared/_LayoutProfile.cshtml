@@ -131,15 +131,16 @@
                             <li id="menu-item-903" class="menu-item">
                                 <a href=".@Url.Action("Contact", "Home")/">Contact</a>
                             </li>
+                            @* @if (User.IsInRole("Admin"))
                             {
                                 <li><a asp-controller="Service" asp-action="Index">Admin Panel</a></li>
-                            }
+                            } *@
                         </ul>
                     </nav>
                 </div>
 
                 <div class="site_hotline">
-                    <a href="@ViewData["PhoneCall"]">@ViewData["PhoneShow"]</a>
+                    <a href="@Html.Raw(ViewData["PhoneCall"])">@ViewData["PhoneShow"]</a>
                 </div>
             </div>
         </div>
@@ -174,10 +175,10 @@
                             <a href="./">Home</a>
                         </li>
                         <li id="menu-item-904" class="menu-item">
-                            <a href="@Url.Action("Booking", "Home")/">Booking</a>
+                            <a href=".@Url.Action("Booking", "Home")/">Booking</a>
                         </li>
                         <li id="menu-item-903" class="menu-item">
-                            <a href="@Url.Action("Contact", "Home")/">Contact</a>
+                            <a href=".@Url.Action("Contact", "Home")/">Contact</a>
                         </li>
                     </ul>
                 </div>
